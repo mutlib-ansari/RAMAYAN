@@ -7,14 +7,15 @@ import theme3 from '../Assests/naks3.png'
 import bg2 from '../Assests/bgtranperent.png'
 
 export default function Herosection() {
-  return (
+  return ( 
+    <div>
     <div className='container mx-auto '>
       {/* Section 1 */}
       <div className='flex flex-col md:flex-row relative mt-10'>
         <div className='absolute top-0 right-0'>
           <img className='h-48 md:h-96' src={bg2} alt="Background 1"/>
         </div>
-        <div className=' md:w-2/3 flex justify-center'>
+        <div className=' md:w-2/3 flex justify-start'>
           <img className='h-48 md:h-96' src={theme1} alt="Theme 1" />
         </div>
         <div className=' md:w-2/3 text-center'>
@@ -34,7 +35,7 @@ export default function Herosection() {
         <div className='absolute top-0 left-0'>
           <img className='h-48 md:h-96' src={bg2} alt="Background 2"/>
         </div>
-        <div className=' md:w-2/3 flex justify-center'>
+        <div className=' md:w-2/3 flex justify-end'>
           <img className='h-48 md:h-96' src={theme2} alt="Theme 2" />
         </div>
         <div className=' md:w-2/3 text-center'>
@@ -54,7 +55,7 @@ export default function Herosection() {
         <div className='absolute top-0 right-0'>
           <img className='h-48 md:h-96' src={bg2} alt="Background 3"/>
         </div>
-        <div className=' md:w-2/3 flex justify-center'>
+        <div className=' md:w-2/3 flex justify-start'>
           <img className='h-48 md:h-96' src={theme3} alt="Theme 3" />
         </div>
         <div className='md:w-2/3 text-center'>
@@ -68,6 +69,7 @@ export default function Herosection() {
           </div>
         </div>
       </div>
+    </div>
     </div>
   )
 }

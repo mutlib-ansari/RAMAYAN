@@ -8,13 +8,14 @@ import stachu from '../Assests/stachu.png';
 
 export default function Dasbord() {
   return (
+    <div  className='container ' style={{ backgroundImage: `url(${bg})` }}>
     <div
-      className="flex flex-col md:flex-row  bg-cover bg-center"
-      style={{ backgroundImage: `url(${bg})` }}
+      className="  flex flex-col md:flex-row "
+      
     >
       
-      <div className="w-full md:w-1/2 flex justify-center items-center p-5">
-        <div className="text-left md:pl-5 md:translate-y-20">
+      <div className=" md:w-1/2 flex justify-center items-center ">
+        <div className="text-left md:pl-5 md:translate-y">
           <h1 className=" text-4xl md:text-6xl">
             Lorem ipsum dolor sit amet,{' '}
             <span className="text-yellow-600">consectetur,</span>
@@ -26,20 +27,21 @@ export default function Dasbord() {
             believable.
           </p>
           <div className="mt-6">
-            <button className="border rounded p-2 mr-3  hover:bg-yellow-600 text-white">
-               <span  className='text-black'> Know more</span>
+            <button className="border rounded p-2 mr-3 bg-white text-black hover:bg-yellow-600 hover:text-white">
+               <span  className=''> Know more</span>
             </button>
-            <button className="border rounded p-2  hover:bg-yellow-600 text-white">
-              <span className='text-black'>Contact Us</span>
+            <button className="border rounded p-2 bg-white text-black hover:bg-yellow-600 hover:text-white">
+              <span className=''>Contact Us</span>
             </button>
           </div>
         </div>
       </div>
 
       
-      <div className="md:w-1/2 flex justify-center items-center  md:translate-y-0">
+      <div className="md:w-1/2 flex justify-end items-center  md:translate-y-0">
         <img src={stachu} className="   h-3/4 " alt="Stachu" />
       </div>
+    </div>
     </div>
   );
 }

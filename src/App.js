@@ -202,6 +202,47 @@
 
 
 
+// import './App.css';
+// import Dasbord from './componants/Dasbord/Dasbord';
+// import Footer from './componants/Footer/Footer';
+// import Header from './componants/Header/Header';
+// import Herosection from './componants/Herosection/Herosection';
+// import Latestpost from './componants/Latestpost/Latestpost';
+// import Products from './componants/Products/Products';
+// import Tebs from './componants/Tebs/Tebs';
+// import ProductDetail from './componants/pages/ProductsDetails'; 
+
+// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+// function App() {
+//   return (
+//     <Router>
+//       <Header />
+//       <Routes>
+//         <Route 
+//           path='/' 
+//           element={
+//             <>
+//               <Dasbord />
+//               <Herosection />
+//               <Products />
+//               <Tebs />
+//               <Latestpost />
+//             </>
+//           } 
+//         />
+//         {/* Update route to include :productId */}
+        
+//         <Route path='/componants/pages/ProductsDetails' element={<ProductDetail />} />
+//       </Routes>
+//       <Footer />
+//     </Router>
+//   );
+// }
+
+// export default App;
+
+
 import './App.css';
 import Dasbord from './componants/Dasbord/Dasbord';
 import Footer from './componants/Footer/Footer';
@@ -231,9 +272,9 @@ function App() {
             </>
           } 
         />
-        {/* Update route to include :productId */}
         
-        <Route path='/componants/pages/ProductsDetails' element={<ProductDetail />} />
+        {/* Update route to include :productId */}
+        <Route path='/ProductsDetails/:productId' element={<ProductDetail />} />
       </Routes>
       <Footer />
     </Router>

@@ -513,7 +513,7 @@ export default function Header() {
   }, [isSidebarOpen, isSubSidebarOpen]);
 
   return (
-    <div className="z-20 sticky top-0 flex justify-between items-center bg-gradient-to-r from-gray-200 via-white w-full h-20 shadow-md">
+    <div className=" container z-20 sticky top-0 flex justify-between items-center bg-gradient-to-r from-gray-200 via-white w-full h-20 shadow-md p-1">
       
       {/* Main Sidebar */}
       {isSidebarOpen && (

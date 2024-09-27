@@ -37,7 +37,8 @@ export default function Tebs() {
   ];
 
   return (
-    <div className="bg-gray-100 mt-36 relative grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1">
+    
+    <div className=" container  bg-gray-100 mt-36 relative grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 ">
       {/* Background Images */}
       <img className="absolute right-10 h-40 md:w-30" src={bg} alt="bg1" />
       <img className="absolute left-0 bottom-0 h-40 md:w-30" src={bg2} alt="bg2" />
