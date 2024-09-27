@@ -23,8 +23,8 @@ module.exports = {
     container: {
       center: true,
       padding: {
-        DEFAULT: '2rem',
-        xl: '2rem', // Adjust padding at the xl breakpoint
+        DEFAULT: '1rem',
+        xl: '1rem', // Adjust padding at the xl breakpoint
       },
       screens: {
         xl:'1560px', // Set custom width for xl breakpoint
