@@ -10,7 +10,8 @@
       "originalPrice": 450.00,
       "discountedPrice": 300.00,
       "rating": 2.5,
-      "discount": "15% off"
+      "discount": "15% off",
+      "description": " Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip."
     },
     {
       "id": 2,
@@ -19,7 +20,8 @@
       "originalPrice": 500.00,
       "discountedPrice": 350.00,
       "rating": 4,
-      "discount": "15% off"
+      "discount": "15% off",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip."
     },
     {
       "id": 3,
@@ -28,7 +30,8 @@
       "originalPrice": 500.00,
       "discountedPrice": 350.00,
       "rating": 4,
-       "discount": "15% off"
+       "discount": "15% off",
+       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip."
     },
     {
       "id": 4,
@@ -37,7 +40,8 @@
       "originalPrice": 500.00,
       "discountedPrice": 350.00,
       "rating": 4,
-       "discount": "15% off"
+      "discount": "15% off",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip."
     },
     {
       "id": 5,
@@ -46,7 +50,8 @@
       "originalPrice": 500.00,
       "discountedPrice": 350.00,
       "rating": 4,
-       "discount": "15% off"
+      "discount": "15% off",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip."
     },
     {
       "id": 6,
@@ -55,7 +60,8 @@
       "originalPrice": 500.00,
       "discountedPrice": 350.00,
       "rating": 4,
-       "discount": "15% off"
+      "discount": "15% off",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip."
     }
   ]
  

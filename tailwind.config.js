@@ -23,11 +23,11 @@ module.exports = {
     container: {
       center: true,
       padding: {
-        DEFAULT: '1rem',
-        xl: '3rem', // Adjust padding at the xl breakpoint
+        DEFAULT: '10rem',
+        xl: '2rem', // Adjust padding at the xl breakpoint
       },
       screens: {
-        xl: '1360px', // Set custom width for xl breakpoint
+        xl:'1560px', // Set custom width for xl breakpoint
       },
     },
   },
