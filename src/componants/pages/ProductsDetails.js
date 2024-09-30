@@ -441,7 +441,7 @@ export default function ProductDetail() {
         <div className="relative flex justify-center items-center">
           {/* Left Arrow */}
           <button
-            className="absolute left-0 z-10 bg-gray-200 p-2 rounded-full hover:bg-gray-400"
+            className="absolute left-0 z-10  bg-gray-200 p-2 rounded-full hover:bg-yellow-600"
             onClick={handlePrevImage}
           >
             &#8592; {/* Left arrow symbol */}
@@ -456,7 +456,7 @@ export default function ProductDetail() {
 
           {/* Right Arrow */}
           <button
-            className="absolute right-0 z-10 bg-gray-200 p-2 rounded-full hover:bg-gray-400"
+            className="absolute right-0 z-10 bg-gray-200 p-2 rounded-full hover:bg-yellow-600"
             onClick={handleNextImage}
           >
             &#8594; {/* Right arrow symbol */}

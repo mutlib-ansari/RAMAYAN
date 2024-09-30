@@ -79,7 +79,7 @@ import { FacebookOutlined, InstagramOutlined, LinkedinOutlined, YoutubeOutlined 
 
 export default function Footer() {
     return (
-        <div className=" container mx-auto bg-yellow-600 text-white py-6 mt-10">
+        <div className="  bg-yellow-600 text-white py-6 mt-10">
             {/* Container */}
             <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-4 md:px-0">
                 {/* Contact Us Section */}

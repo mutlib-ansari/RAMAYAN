@@ -8,12 +8,16 @@ import stachu from '../Assests/stachu.png';
 
 export default function Dasbord() {
   return (
-    <div className='container ' 
-    style={{ backgroundImage: `url(${bg})` }}>
 
-      
+   
+    <div  
+    style={{ backgroundImage: `url(${bg}) ` }}
+    className='bg-cover bg-center  w-full'
+     >
+          {/* <img className='w-' src={bg}/>
+       */}
       <div
-        className="  flex flex-col md:flex-row "
+        className=" container mx-auto flex flex-col md:flex-row "
        
       >
 
