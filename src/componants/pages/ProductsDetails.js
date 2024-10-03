@@ -279,20 +279,26 @@
 //   );
 // } 
 
-// import React, { useState } from 'react';
+
+
+
+// import React, { useState, useEffect } from 'react';
 // import { useParams } from 'react-router-dom';
 // import products from '../data/Products.json';
 // import { Rate } from 'antd';
+// import { Button } from 'antd';
+// import Slider from 'react-slick';
 // import stachuImage from '../Assests/stachu.png';
-// import stachuImage2 from '../Assests/naks1.png'; 
-// import stachuImage3 from '../Assests/naks2.png'; 
+// import stachuImage2 from '../Assests/naks1.png';
+// import stachuImage3 from '../Assests/naks2.png';
+// import 'slick-carousel/slick/slick.css'; 
+// import 'slick-carousel/slick/slick-theme.css';
 
-
+// // Map product images
 // const imageMap = {
 //   'stachu.png': stachuImage,
 //   'naks1.png': stachuImage2,
 //   'naks2.png': stachuImage3,
- 
 // };
 
 // export default function ProductDetail() {
@@ -300,105 +306,209 @@
 //   const product = products.find((item) => item.id === parseInt(productId, 10));
 
 //   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+//   const [reviews, setReviews] = useState([
+//     { name: 'John Doe', rating: 5, comment: 'Great product!' },
+//     { name: 'Jane Smith', rating: 4, comment: 'Very satisfied with the purchase.' },
+//   ]);
+//   const [newReview, setNewReview] = useState({ name: '', rating: 0, comment: '' });
+  
+//   // State to manage the visibility of the review input section
+//   const [showReviewInput, setShowReviewInput] = useState(false);
+
+//   const productImages = product ? [imageMap[product.imageName], stachuImage2, stachuImage3] : [];
+
+//   useEffect(() => {
+//     if (productImages.length > 0) {
+//       const interval = setInterval(() => {
+//         setCurrentImageIndex((prevIndex) =>
+//           prevIndex === productImages.length - 1 ? 0 : prevIndex + 1
+//         );
+//       }, 3000);
+
+//       return () => clearInterval(interval);
+//     }
+//   }, [productImages]);
 
 //   if (!product) {
-//     return <div className='container mx-auto mt-10'>Product not found</div>;
+//     return <div className="container mx-auto mt-10">Product not found</div>;
 //   }
 
-//   // Example: Dynamically loading all product images based on product ID
-//   const productImages = [
-//     imageMap[product.imageName], // Main image
-//     stachuImage2, // Additional images
-//     stachuImage3,
-    
-//   ];
+//   const handleReviewSubmit = () => {
+//     if (newReview.name && newReview.rating && newReview.comment) {
+//       setReviews([...reviews, newReview]);
+//       setNewReview({ name: '', rating: 0, comment: '' });
+//       setShowReviewInput(false); // Hide input after submitting
+//     }
+//   };
 
-//   // Function to handle moving to the previous image
-//   const handlePrevImage = () => {
-//     setCurrentImageIndex((prevIndex) =>
-//       prevIndex === 0 ? productImages.length - 1 : prevIndex - 1
+//   const PrevArrow = ({ onClick }) => {
+//     return (
+//       <div
+//         className="absolute left-0 bottom-20  z-10 bg-gray-200 p-2 rounded-full hover:bg-yellow-600 cursor-pointer"
+//         onClick={onClick}
+//       >
+//         &#8592; {/* Left arrow symbol */}
+//       </div>
 //     );
 //   };
 
-//   // Function to handle moving to the next image
-//   const handleNextImage = () => {
-//     setCurrentImageIndex((prevIndex) =>
-//       prevIndex === productImages.length - 1 ? 0 : prevIndex + 1
+//   const NextArrow = ({ onClick }) => {
+//     return (
+//       <div
+//         className="absolute right-0  bottom-20  z-10 bg-gray-200 p-2 rounded-full hover:bg-yellow-600 cursor-pointer"
+//         onClick={onClick}
+//       >
+//         &#8594; {/* Right arrow symbol */}
+//       </div>
 //     );
+//   };
+
+//   // Slick slider settings
+//   const settings = {
+//     dots: true,
+//     infinite: true,
+//     speed: 500,
+//     slidesToShow: 3,
+//     slidesToScroll: 1,
+//     prevArrow: <PrevArrow />,
+//     nextArrow: <NextArrow />,
 //   };
 
 //   return (
-//     <div className='sm:px-6 lg:px-8'>
-//       <div className='grid grid-cols-2 md:grid-cols-2'>
-//         {/* Image section with left and right arrows */}
-//         <div className='relative flex justify-center items-center'>
-//           {/* Left Arrow */}
-//           <button
-//             className='absolute left-0 z-10 bg-gray-200 p-2 rounded-full hover:bg-gray-400'
-//             onClick={handlePrevImage}
-//           >
-//             &#8592; {/* Left arrow symbol */}
-//           </button>
-
-//           {/* Display the current image */}
-//           <img
-//             className='h-1/2 sm:w-1/2 md:w-96 object-contain'
-//             src={productImages[currentImageIndex] }
-//             alt={product.name}
-//           />
-
-//           {/* Right Arrow */}
-//           <button
-//             className='absolute right-0 z-10 bg-gray-200 p-2 rounded-full hover:bg-gray-400'
-//             onClick={handleNextImage}
-//           >
-//             &#8594; {/* Right arrow symbol */}
-//           </button>
+//     <div className="container mx-auto sm:px-4 lg:px-8 py-10">
+//       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+//         {/* Image section with slider */}
+//         <div className="relative flex justify-center items-center">
+//           <img className="w-96 h-96 object-contain" src={productImages[currentImageIndex]} alt={product.name} />
 //         </div>
 
 //         {/* Product details */}
-//         <div className='md:ml-10 translate-y-36'>
-//           <h3 className='text-xl sm:text-2xl font-bold'>{product.name}</h3>
+//         <div className="flex flex-col justify-center items-start">
+//           <h3 className="text-lg sm:text-2xl font-bold">{product.name}</h3>
 
 //           {/* Rating and Reviews */}
-//           <div>
-//             <Rate allowHalf value={product.rating} className='mt-2 pr-5' />
-//             <span>(5 customer reviews)</span>
+//           <div className="flex items-center mt-2">
+//             <Rate allowHalf value={product.rating} className="mr-2" />
+//             <span>({reviews.length} customer reviews)</span>
 //           </div>
 
 //           {/* Price section */}
-//           <div className='text-lg mt-4 flex items-center'>
-//             <span className='line-through mr-2'>
-//               ${product.originalPrice.toFixed(2)}
-//             </span>
-//             <span className='text-red-600'>
-//               ${product.discountedPrice.toFixed(2)}
-//             </span>
+//           <div className="text-lg mt-4 flex items-center">
+//             <span className="line-through mr-2">${product.originalPrice.toFixed(2)}</span>
+//             <span className="text-red-600">${product.discountedPrice.toFixed(2)}</span>
 //           </div>
 
 //           {/* Description */}
-//           <p className='mt-4'>{product.description}</p>
+//           <p className="mt-4 text-gray-700">{product.description}</p>
 
-//           {/* Add to Cart Button */}
-//           <button className='mt-6 border rounded p-2 hover:bg-yellow-600 hover:text-white transition'>
-//             Add to Cart
-//           </button>
+//           <Button className="mt-6 bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4">Add to Cart</Button>
 //         </div>
+//       </div>
+
+//       {/* Reviews Section */}
+//       <div className="mt-10">
+//         <div className='flex justify-between text-xl font-bold'> 
+//           <h3 className="text-xl font-bold mb-4">Customer Reviews</h3>
+//           <h5 
+//             className="cursor-pointer text-yellow-500 hover:text-yellow-600"
+//             onClick={() => setShowReviewInput((prev) => !prev)} // Toggle review input visibility
+//           >
+//             {showReviewInput ? 'Cancel' : 'Leave a Review'}
+//           </h5>
+//         </div>
+
+//         {/* Display Reviews */}
+//         <div className="space-y-4">
+//           {reviews.map((review, index) => (
+//             <div key={index} className="border p-4 rounded-lg bg-gray-100">
+//               <div className="flex justify-between">
+//                 <h4 className="font-bold">{review.name}</h4>
+//                 <Rate value={review.rating} disabled />
+//               </div>
+//               <p className="text-gray-600 mt-2">{review.comment}</p>
+//             </div>
+//           ))}
+//         </div>
+
+//         {/* Add a Review */}
+//         {showReviewInput && (
+//           <div className="mt-6">
+//             <h4 className="font-bold mb-2">Leave a Review</h4>
+//             <div className="flex flex-col space-y-2">
+//               <input
+//                 type="text"
+//                 placeholder="Your Name"
+//                 value={newReview.name}
+//                 onChange={(e) => setNewReview({ ...newReview, name: e.target.value })}
+//                 className="border p-2 rounded-lg"
+//               />
+//               <Rate
+//                 onChange={(value) => setNewReview({ ...newReview, rating: value })}
+//                 value={newReview.rating}
+//               />
+//               <textarea
+//                 placeholder="Your Review"
+//                 value={newReview.comment}
+//                 onChange={(e) => setNewReview({ ...newReview, comment: e.target.value })}
+//                 className="border p-2 rounded-lg"
+//                 rows={4}
+//               />
+//               <Button onClick={handleReviewSubmit} className="bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4">
+//                 Submit Review
+//               </Button>
+//             </div>
+//           </div>
+//         )}
+//       </div>
+
+//       {/* Related Products Slider */}
+//       <div className="mt-10">
+//         <h3 className="text-xl font-bold mb-4">Related Products</h3>
+//         <Slider {...settings}>
+//           {/* Example related products using the same stachu image */}
+//           <div>
+//             <img src={stachuImage} alt="Related Product 1" className="object-contain h-48 w-full" />
+//             <h4 className="text-center mt-2">Related Product 1</h4>
+//           </div>
+//           <div>
+//             <img src={stachuImage} alt="Related Product 2" className="object-contain h-48 w-full" />
+//             <h4 className="text-center mt-2">Related Product 2</h4>
+//           </div>
+//           <div>
+//             <img src={stachuImage} alt="Related Product 3" className="object-contain h-48 w-full" />
+//             <h4 className="text-center mt-2">Related Product 3</h4>
+//           </div>
+//           <div>
+//             <img src={stachuImage} alt="Related Product 4" className="object-contain h-48 w-full" />
+//             <h4 className="text-center mt-2">Related Product 4</h4>
+//           </div>
+//           <div>
+//             <img src={stachuImage} alt="Related Product 5" className="object-contain h-48 w-full" />
+//             <h4 className="text-center mt-2">Related Product 5</h4>
+//           </div>
+//         </Slider>
 //       </div>
 //     </div>
 //   );
 // }
 
-import React, { useState } from 'react';
+
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import products from '../data/Products.json';
-import { Rate } from 'antd';
+import { Rate, Button, Modal, Input } from 'antd';
+import Slider from 'react-slick';
 import stachuImage from '../Assests/stachu.png';
 import stachuImage2 from '../Assests/naks1.png';
 import stachuImage3 from '../Assests/naks2.png';
+import 'slick-carousel/slick/slick.css'; 
+import 'slick-carousel/slick/slick-theme.css';
 
+const { TextArea } = Input;
+
+// Map product images
 const imageMap = {
-  'stachu.png': stachuImage ,
+  'stachu.png': stachuImage,
   'naks1.png': stachuImage2,
   'naks2.png': stachuImage3,
 };
@@ -408,59 +518,80 @@ export default function ProductDetail() {
   const product = products.find((item) => item.id === parseInt(productId, 10));
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [reviews, setReviews] = useState([
+    { name: 'John Doe', rating: 5, comment: 'Great product!' },
+    { name: 'Jane Smith', rating: 4, comment: 'Very satisfied with the purchase.' },
+  ]);
+  const [newReview, setNewReview] = useState({ name: '', rating: 0, comment: '' });
+  
+  // State to manage the visibility of the modal
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const productImages = product ? [imageMap[product.imageName], stachuImage2, stachuImage3] : [];
+
+  useEffect(() => {
+    if (productImages.length > 0) {
+      const interval = setInterval(() => {
+        setCurrentImageIndex((prevIndex) =>
+          prevIndex === productImages.length - 1 ? 0 : prevIndex + 1
+        );
+      }, 3000);
+
+      return () => clearInterval(interval);
+    }
+  }, [productImages]);
 
   if (!product) {
     return <div className="container mx-auto mt-10">Product not found</div>;
   }
 
-  // Example: Dynamically loading all product images based on product ID
-  const productImages = [
-    imageMap[product.imageName], // Main image
-    stachuImage2, // Additional images
-    stachuImage3,
-  ];
+  const handleReviewSubmit = () => {
+    if (newReview.name && newReview.rating && newReview.comment) {
+      setReviews([...reviews, newReview]);
+      setNewReview({ name: '', rating: 0, comment: '' });
+      setIsModalVisible(false); // Hide modal after submitting
+    }
+  };
 
-  // Function to handle moving to the previous image
-  const handlePrevImage = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === 0 ? productImages.length - 1 : prevIndex - 1
+  const PrevArrow = ({ onClick }) => {
+    return (
+      <div
+        className="absolute left-0 bottom-20  z-10 bg-gray-200 p-2 rounded-full hover:bg-yellow-600 cursor-pointer"
+        onClick={onClick}
+      >
+        &#8592; {/* Left arrow symbol */}
+      </div>
     );
   };
 
-  // Function to handle moving to the next image
-  const handleNextImage = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === productImages.length - 1 ? 0 : prevIndex + 1
+  const NextArrow = ({ onClick }) => {
+    return (
+      <div
+        className="absolute right-0  bottom-20  z-10 bg-gray-200 p-2 rounded-full hover:bg-yellow-600 cursor-pointer"
+        onClick={onClick}
+      >
+        &#8594; {/* Right arrow symbol */}
+      </div>
     );
+  };
+
+  // Slick slider settings
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    prevArrow: <PrevArrow />,
+    nextArrow: <NextArrow />,
   };
 
   return (
     <div className="container mx-auto sm:px-4 lg:px-8 py-10">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {/* Image section with left and right arrows */}
+        {/* Image section with slider */}
         <div className="relative flex justify-center items-center">
-          {/* Left Arrow */}
-          <button
-            className="absolute left-0 z-10  bg-gray-200 p-2 rounded-full hover:bg-yellow-600"
-            onClick={handlePrevImage}
-          >
-            &#8592; {/* Left arrow symbol */}
-          </button>
-
-          {/* Display the current image */}
-          <img
-             className="w-96 h-96 object-contain" 
-            src={productImages[currentImageIndex]}
-            alt={product.name}
-          />
-
-          {/* Right Arrow */}
-          <button
-            className="absolute right-0 z-10 bg-gray-200 p-2 rounded-full hover:bg-yellow-600"
-            onClick={handleNextImage}
-          >
-            &#8594; {/* Right arrow symbol */}
-          </button>
+          <img className="w-96 h-96 object-contain" src={productImages[currentImageIndex]} alt={product.name} />
         </div>
 
         {/* Product details */}
@@ -470,7 +601,7 @@ export default function ProductDetail() {
           {/* Rating and Reviews */}
           <div className="flex items-center mt-2">
             <Rate allowHalf value={product.rating} className="mr-2" />
-            <span>(5 customer reviews)</span>
+            <span>({reviews.length} customer reviews)</span>
           </div>
 
           {/* Price section */}
@@ -482,14 +613,92 @@ export default function ProductDetail() {
           {/* Description */}
           <p className="mt-4 text-gray-700">{product.description}</p>
 
-          {/* Add to Cart Button */}
-          <button className="mt-6 bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded transition">
-            Add to Cart
-          </button>
+          <Button className="mt-6 bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4">Add to Cart</Button>
         </div>
+      </div>
+
+      {/* Reviews Section */}
+      <div className="mt-10">
+        <div className='flex justify-between text-xl font-bold'> 
+          <h3 className="text-xl font-bold mb-4">Customer Reviews</h3>
+          <h5 
+            className="cursor-pointer text-yellow-500 hover:text-yellow-600"
+            onClick={() => setIsModalVisible(true)} // Show modal when clicking "Leave a Review"
+          >
+            Leave a Review
+          </h5>
+        </div>
+
+        {/* Display Reviews */}
+        <div className="space-y-4">
+          {reviews.map((review, index) => (
+            <div key={index} className="border p-4 rounded-lg bg-gray-100">
+              <div className="flex justify-between">
+                <h4 className="font-bold">{review.name}</h4>
+                <Rate value={review.rating} disabled />
+              </div>
+              <p className="text-gray-600 mt-2">{review.comment}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Review Modal */}
+      <Modal
+        title="Leave a Review"
+        visible={isModalVisible}
+        onCancel={() => setIsModalVisible(false)}
+        footer={null} // We'll handle the footer within the modal content
+      >
+        <div className="flex flex-col space-y-2">
+          <Input
+            type="text"
+            placeholder="Your Name"
+            value={newReview.name}
+            onChange={(e) => setNewReview({ ...newReview, name: e.target.value })}
+          />
+          <Rate
+            onChange={(value) => setNewReview({ ...newReview, rating: value })}
+            value={newReview.rating}
+          />
+          <TextArea
+            placeholder="Your Review"
+            value={newReview.comment}
+            onChange={(e) => setNewReview({ ...newReview, comment: e.target.value })}
+            rows={4}
+          />
+          <Button onClick={handleReviewSubmit} className="bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 mt-4">
+            Submit Review
+          </Button>
+        </div>
+      </Modal>
+
+      {/* Related Products Slider */}
+      <div className="mt-10">
+        <h3 className="text-xl font-bold mb-4">Related Products</h3>
+        <Slider {...settings}>
+          <div>
+            <img src={stachuImage} alt="Related Product 1" className="object-contain h-48 w-full" />
+            <h4 className="text-center mt-2">Related Product 1</h4>
+          </div>
+          <div>
+            <img src={stachuImage} alt="Related Product 2" className="object-contain h-48 w-full" />
+            <h4 className="text-center mt-2">Related Product 2</h4>
+          </div>
+          <div>
+            <img src={stachuImage} alt="Related Product 3" className="object-contain h-48 w-full" />
+            <h4 className="text-center mt-2">Related Product 3</h4>
+          </div>
+          <div>
+            <img src={stachuImage} alt="Related Product 4" className="object-contain h-48 w-full" />
+            <h4 className="text-center mt-2">Related Product 4</h4>
+          </div>
+          <div>
+            <img src={stachuImage} alt="Related Product 5" className="object-contain h-48 w-full" />
+            <h4 className="text-center mt-2">Related Product 5</h4>
+          </div>
+        </Slider>
       </div>
     </div>
   );
 }
-
-

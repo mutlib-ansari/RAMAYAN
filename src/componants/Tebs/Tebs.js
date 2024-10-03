@@ -5,7 +5,7 @@ import icon1 from '../Assests/icon1.png';
 import bg from '../Assests/shape-1.png';
 import bg2 from '../Assests/shape-2.png';
 import bg3 from '../Assests/bgtranperent.png';
-
+import floewr from "../Assests/flower.png"
 export default function Tebs() {
   const [activeTab, setActiveTab] = useState(0);
 
@@ -37,15 +37,15 @@ export default function Tebs() {
   ];
 
   return (
-    
-    <div className="  bg-gray-100 mt-36 relative grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 ">
+
+    <div className=" bg-gray-100 mt-36 relative grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1  " >
       {/* Background Images */}
       <img className="absolute right-10 h-40 md:w-30" src={bg} alt="bg1" />
       <img className="absolute left-0 bottom-0 h-40 md:w-30" src={bg2} alt="bg2" />
       {/* <img className="absolute right-10 opacity-25 md:w-0" src={bg3} alt="bg3" />
       <img className="absolute left-10 opacity-25 md:w-0" src={bg3} alt="bg3" /> */}
 
-      
+
       <div className="text-center px-4 sm:px-6 lg:px-8">
         <h2 className="text-lg text-gray-500">Testimonials</h2>
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-yellow-600 mt-4">
@@ -56,10 +56,10 @@ export default function Tebs() {
         </p>
       </div>
 
-      
+
       <div className="mt-10">
         <div className="flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8">
-          
+
           <div className="rounded-full border-4 border-white overflow-hidden w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40">
             <img
               src={testimonials[activeTab].image}
@@ -68,18 +68,18 @@ export default function Tebs() {
             />
           </div>
 
-          
+
           <h3 className="text-xl sm:text-2xl font-semibold mt-4">{testimonials[activeTab].name}</h3>
           <p className="text-gray-500 text-sm sm:text-base">{testimonials[activeTab].role}</p>
 
-          
+
           <p className="text-gray-600 max-w-xl text-center mt-6 text-sm sm:text-base md:text-lg">
             {testimonials[activeTab].content}
           </p>
 
-         
-          <div className="mt-6">
-            <div className="flex space-x-2 justify-center">
+
+          <div className="mt-6 p-7">
+            <div className="flex space-x-2 justify-center gap-7">
               {testimonials.map((_, index) => (
                 <span
                   key={index}
@@ -91,6 +91,9 @@ export default function Tebs() {
           </div>
         </div>
       </div>
+
+      <div className='absolute right-0 -bottom-48 '><img src={floewr}/></div>
     </div>
+
   );
 }

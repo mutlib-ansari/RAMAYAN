@@ -5,6 +5,8 @@
 import React from 'react';
 import bg from '../Assests/bgimage.png';
 import stachu from '../Assests/stachu.png';
+import { Button } from "antd";
+import Image1 from '../Assests/image1.png';
 
 export default function Dasbord() {
   return (
@@ -33,13 +35,10 @@ export default function Dasbord() {
               humour, or randomised words which don't look even slightly
               believable.
             </p>
-            <div className="mt-6">
-              <button className="border rounded p-2 mr-3 bg-white text-black hover:bg-yellow-600 hover:text-white">
-                <span className=''> Know more</span>
-              </button>
-              <button className="border rounded p-2 bg-white text-black hover:bg-yellow-600 hover:text-white">
-                <span className=''>Contact Us</span>
-              </button>
+            <div className="mt-6 ">
+            <Button className=" bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 mt-4 mr-5"> know more</Button>
+            <Button className=" bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 mt-4"> contect us</Button>
+              
             </div>
           </div>
         </div>
@@ -49,6 +48,8 @@ export default function Dasbord() {
           <img src={stachu} className="   h-3/4 " alt="Stachu" />
         </div>
       </div>
+
+      <marquee > <img src={Image1}/></marquee>
     </div>
   );
 }

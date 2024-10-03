@@ -251,6 +251,8 @@ import Herosection from './componants/Herosection/Herosection';
 import Latestpost from './componants/Latestpost/Latestpost';
 import Products from './componants/Products/Products';
 import Tebs from './componants/Tebs/Tebs';
+import Listingpage from './componants/pages/Listingpage';
+
 import ProductDetail from './componants/pages/ProductsDetails'; 
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -269,12 +271,15 @@ function App() {
               <Products />
               <Tebs />
               <Latestpost />
+           
+              
             </>
           } 
         />
         
         {/* Update route to include :productId */}
         <Route path='/ProductsDetails/:productId' element={<ProductDetail />} />
+        <Route path="/Listingpage" element={<Listingpage />} />
       </Routes>
       <Footer />
     </Router>

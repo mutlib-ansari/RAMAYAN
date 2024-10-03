@@ -124,6 +124,7 @@
 import React, { memo } from 'react';
 import products from '../data/Products.json';
 import { Rate } from 'antd';
+import { Button } from "antd";
 import stachuImage from '../Assests/stachu.png';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
 
@@ -169,16 +170,15 @@ export default memo(function Products() {
               ${product.discountedPrice.toFixed(2)}
             </span>
             <Rate allowHalf defaultValue={product.rating} />
-            <div className='flex justify-center'>
-              <button
-                className='border rounded p-2 mr-3 bg-white text-black hover:bg-yellow-600 hover:text-white'
+            <div className='flex justify-center mt-5'>
+              <Button
+                className='border rounded p-2 mr-3  bg-yellow-500 hover:bg-yellow-600 text-white'
                 onClick={() => goToProductDetail(product.id)} // Call the function with product ID
               >
                 <span>Know more</span>
-              </button>
-              <button className='border rounded p-2 mr-3 bg-white text-black hover:bg-yellow-600 hover:text-white'>
-                <span>Add to cart</span>
-              </button>
+              </Button>
+
+              <Button className=" bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4"> Add to Cart</Button>
             </div>
           </div>
         ))}
