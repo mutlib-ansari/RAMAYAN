@@ -518,8 +518,8 @@ export default memo(function Products() {
   }, [isSidebarOpen, isSubSidebarOpen]);
 
   return (
-    <div className={`bg-gradient-to-r from-gray-200 via-white w-full h-20 shadow-md ${isBlurActive ? 'backdrop-blur-md' : ''}`}>
-      <div className="container mx-auto z-20 sticky top-0 flex justify-between items-center p-1">
+    <div className={` fixed bg-gradient-to-r from-gray-200 via-white w-full h-20 shadow-md  z-20 : ''}`}>
+      <div className="container mx-auto sticky top-0 flex justify-between items-center p-1">
         
         {/* Main Sidebar */}
         {isSidebarOpen && (
@@ -538,14 +538,19 @@ export default memo(function Products() {
             <nav>
               <ul className="space-y-4 p-4">
                 <li>
-                  <a href="#" className="block text-gray-700 hover:text-gray-900">Home</a>
+                  <Link to="./"><a href="#" className="block text-gray-700 hover:text-gray-900" onClick={toggleSidebar}>Home</a></Link>
                 </li>
+
+                <li>
+                 <Link to='./CartPage'> <a href="#" className="block text-gray-700 hover:text-gray-900" onClick={toggleSidebar}>Add to Card</a></Link>
+                </li>
+               
                 <li className="relative">
                   <div
                     className="flex justify-between items-center cursor-pointer text-gray-700 hover:text-gray-900"
                     onClick={() => toggleSubMenu('about')}
                   >
-                    <span>About Us</span>
+                    <span onClick={toggleSidebar}>About Us</span>
                     {openMenu === 'about' ? <UpOutlined /> : <DownOutlined />}
                   </div>
                 </li>
@@ -554,19 +559,19 @@ export default memo(function Products() {
                     className="flex justify-between items-center cursor-pointer text-gray-700 hover:text-gray-900"
                     onClick={() => toggleSubMenu('services')}
                   >
-                    <span>Services</span>
+                    <span onClick={toggleSidebar}>Services</span>
                     {openMenu === 'services' ? <UpOutlined /> : <DownOutlined />}
                   </div>
                 </li>
                 <li>
-                  <a href="#" className="block text-gray-700 hover:text-gray-900">Contact</a>
+                  <a href="#" className="block text-gray-700 hover:text-gray-900 " onClick={toggleSidebar}>Contact</a>
                 </li>
                 
 
-                <Link to="/Listingpage" className="block text-gray-700 hover:text-gray-900">Listing page</Link>
+                <Link to="/Listingpage" className="block text-gray-700 hover:text-gray-900" onClick={toggleSidebar}>Listing page</Link>
 
                 <li onClick={showModal} >
-                  <a href="#" className="block text-gray-700 hover:text-gray-900">Log in</a>
+                  <a href="#" className="block text-gray-700 hover:text-gray-900" onClick={toggleSidebar}>Log in</a>
                 </li>
               </ul>
             </nav>
@@ -590,10 +595,10 @@ export default memo(function Products() {
               {openMenu === 'about' && (
                 <>
                   <li>
-                    <a href="#" className="block text-gray-700 hover:text-gray-900">Our Team</a>
+                    <a href="#" className="block text-gray-700 hover:text-gray-900" onClick={toggleSidebar}>Our Team</a>
                   </li>
                   <li onClick={() => goToListingpage(Listing.Id)}>
-                    <a href="#" className="block text-gray-700 hover:text-gray-900"  >Our Story</a>
+                    <a href="#" className="block text-gray-700 hover:text-gray-900"  onClick={toggleSidebar}>Our Story</a>
                   </li>
 
 
@@ -618,7 +623,7 @@ export default memo(function Products() {
 
         {/* Logo Section */}
         <div className="flex-none w-20 h-12 md:w-32 md:h-20">
-          <img src={Image1} alt="Logo" className="h-30 w-full object-contain" />
+        <Link to="/"> <img src={Image1} alt="Logo" className="h-30 w-full object-contain" /> </Link>
         </div>
 
         {/* Location Selector and Search Bar */}
@@ -641,15 +646,16 @@ export default memo(function Products() {
             className="w-8 h-8 hidden lg:block border border-black rounded cursor-pointer"
             onClick={showModal} // Click to show modal
           />
-          <img
+          <Link to='/CartPage'><img
             src={Image3}
             alt="Icon 2"
             className="w-8 h-8 hidden lg:block border border-black rounded"
           />
+          </Link>
           <img
             src={Image4}
             alt="Icon 3"
-            className="w-8 h-8 block lg:block border border-black rounded cursor-pointer"
+            className="w-8 h-8 block  lg:block border border-black rounded cursor-pointer"
             onClick={toggleSidebar}
           />
         </div>

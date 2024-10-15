@@ -63,19 +63,48 @@
      
 // }
 
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import image6 from '../Assests/image6.png';
 import { UserOutlined, CalendarOutlined } from '@ant-design/icons';
+import './Styles2.css'
 
 export default function Latestpost() {
+
+
+
+  const sectionRef = useRef(null);
+ 
+  const [isVisible, setIsVisible] = useState({ section: false });
+
+  const handleScroll = (entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        if (entry.target === sectionRef.current) {
+          setIsVisible(prev => ({ ...prev, section: true }));
+        } 
+      }
+    });
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(handleScroll);
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    
+    return () => {
+      if (sectionRef.current) observer.unobserve(sectionRef.current);
+    };
+  }, []);
+
+
   return (
 
-    <div className='container mx-auto mt-14' >
+    <div   className={`container mx-auto mt-14  `} >
       <spana className='text-4xl  font-bold '>Our Latest Post</spana>
-    <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-9'>
+    <div ref={sectionRef}  className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-9 ${isVisible.section ? 'fade-in-right visible' : 'fade-in-right'}`}>
       
       <div className='border p-4 md:p-6 bg-gray-100 flex flex-col items-center'>
-        <img className='h-auto w-full object-cover' src={image6} alt="Post Image" />
+        <img className='h-auto w-full object-cover ' src={image6} alt="Post Image" />
         <div className='flex justify-between w-full mt-4 text-gray-600'>
           <span className='flex items-center gap-2'>
             <UserOutlined />

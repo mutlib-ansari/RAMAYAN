@@ -7,8 +7,8 @@
       "id": 1,
       "name": "Bal Ram Lalla Murti 3.5 Inch",
       "imageName": "stachu.png",
-      "originalPrice": 450.00,
-      "discountedPrice": 300.00,
+      "originalPrice": 14080.00,
+      "discountedPrice": 7040.00,
       "rating": 2.5,
       "discount": "15% off",
       "description": " Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip."
@@ -17,8 +17,8 @@
       "id": 2,
       "name": "Bal Ram Lalla Murti 3.5 Inch",
       "imageName": "stachu.png",
-      "originalPrice": 500.00,
-      "discountedPrice": 350.00,
+      "originalPrice": 14080.00,
+      "discountedPrice": 7040.00,
       "rating": 4,
       "discount": "15% off",
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip."
@@ -27,8 +27,8 @@
       "id": 3,
       "name": "Bal Ram Lalla Murti 3.5 Inch",
       "imageName": "stachu.png",
-      "originalPrice": 500.00,
-      "discountedPrice": 350.00,
+      "originalPrice": 14080.00,
+      "discountedPrice": 7040.00,
       "rating": 4,
        "discount": "15% off",
        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip."
@@ -37,8 +37,8 @@
       "id": 4,
       "name": "Bal Ram Lalla Murti 3.5 Inch",
       "imageName": "stachu.png",
-      "originalPrice": 500.00,
-      "discountedPrice": 350.00,
+      "originalPrice": 14080.00,
+      "discountedPrice": 7040.00,
       "rating": 4,
       "discount": "15% off",
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip."
@@ -47,8 +47,8 @@
       "id": 5,
       "name": "Bal Ram Lalla Murti 3.5 Inch",
       "imageName": "stachu.png",
-      "originalPrice": 500.00,
-      "discountedPrice": 350.00,
+      "originalPrice": 14080.00,
+      "discountedPrice": 7040.00,
       "rating": 4,
       "discount": "15% off",
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip."
@@ -57,11 +57,13 @@
       "id": 6,
       "name": "Bal Ram Lalla Murti 3.5 Inch",
       "imageName": "stachu.png",
-      "originalPrice": 500.00,
-      "discountedPrice": 350.00,
+      "originalPrice": 14080.00,
+      "discountedPrice": 7040.00,
       "rating": 4,
       "discount": "15% off",
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip."
     }
   ]
+
+  
  

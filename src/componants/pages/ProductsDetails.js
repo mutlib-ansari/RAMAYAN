@@ -18,7 +18,7 @@
 
 // //   return (
 
-   
+
 
 // //     <div className="container mx-auto mt-10 flex">
 // //      <Products/>
@@ -72,7 +72,7 @@
 
 //   return (
 //     <div className='container mx-auto mt-10'>
-         
+
 //       <div className='flex flex-col md:flex-row items-center justify-center'>
 //         <div className='flex justify-center items-center h-70 mb-5 md:mb-0'>
 //           <img
@@ -113,7 +113,7 @@
 
 // const imageMap = {
 //   'stachu.png': stachuImage,
-  
+
 // };
 
 // export default function ProductDetail() {
@@ -155,7 +155,7 @@
 //     </div>
 //   );
 // }
- 
+
 
 
 // import React from 'react';
@@ -248,7 +248,7 @@
 //           <h3 className='text-xl sm:text-2xl font-bold'>{product.name}</h3>
 
 //           {/* Price section */}
-         
+
 
 //           {/* Rating */}
 //            <div><Rate allowHalf value={product.rating} className='mt-2 pr-5' />
@@ -311,7 +311,7 @@
 //     { name: 'Jane Smith', rating: 4, comment: 'Very satisfied with the purchase.' },
 //   ]);
 //   const [newReview, setNewReview] = useState({ name: '', rating: 0, comment: '' });
-  
+
 //   // State to manage the visibility of the review input section
 //   const [showReviewInput, setShowReviewInput] = useState(false);
 
@@ -494,19 +494,19 @@
 
 
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import products from '../data/Products.json';
 import { Rate, Button, Modal, Input } from 'antd';
 import Slider from 'react-slick';
 import stachuImage from '../Assests/stachu.png';
 import stachuImage2 from '../Assests/naks1.png';
 import stachuImage3 from '../Assests/naks2.png';
-import 'slick-carousel/slick/slick.css'; 
+import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const { TextArea } = Input;
 
-// Map product images
+
 const imageMap = {
   'stachu.png': stachuImage,
   'naks1.png': stachuImage2,
@@ -523,11 +523,17 @@ export default function ProductDetail() {
     { name: 'Jane Smith', rating: 4, comment: 'Very satisfied with the purchase.' },
   ]);
   const [newReview, setNewReview] = useState({ name: '', rating: 0, comment: '' });
-  
+
   // State to manage the visibility of the modal
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const productImages = product ? [imageMap[product.imageName], stachuImage2, stachuImage3] : [];
+
+
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scroll to top
+  }, []);
+
 
   useEffect(() => {
     if (productImages.length > 0) {
@@ -587,41 +593,40 @@ export default function ProductDetail() {
   };
 
   return (
-    <div className="container mx-auto sm:px-4 lg:px-8 py-10">
+    <div className="container mx-auto sm:px-4 lg:px-8 py-10 pt-36">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Image section with slider */}
         <div className="relative flex justify-center items-center">
           <img className="w-96 h-96 object-contain" src={productImages[currentImageIndex]} alt={product.name} />
         </div>
 
-        {/* Product details */}
+
         <div className="flex flex-col justify-center items-start">
           <h3 className="text-lg sm:text-2xl font-bold">{product.name}</h3>
 
-          {/* Rating and Reviews */}
+
           <div className="flex items-center mt-2">
             <Rate allowHalf value={product.rating} className="mr-2" />
             <span>({reviews.length} customer reviews)</span>
           </div>
 
-          {/* Price section */}
+
           <div className="text-lg mt-4 flex items-center">
-            <span className="line-through mr-2">${product.originalPrice.toFixed(2)}</span>
-            <span className="text-red-600">${product.discountedPrice.toFixed(2)}</span>
+            <span className="line-through mr-2">₹{product.originalPrice.toFixed(2)}</span>
+            <span className="text-red-600">₹{product.discountedPrice.toFixed(2)}</span>
           </div>
 
-          {/* Description */}
+
           <p className="mt-4 text-gray-700">{product.description}</p>
 
-          <Button className="mt-6 bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4">Add to Cart</Button>
+          <Link to='/Addtocard'><Button className="mt-6 bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4">Add to Cart</Button></Link>
         </div>
       </div>
 
-      {/* Reviews Section */}
       <div className="mt-10">
-        <div className='flex justify-between text-xl font-bold'> 
+        <div className='flex justify-between text-xl font-bold'>
           <h3 className="text-xl font-bold mb-4">Customer Reviews</h3>
-          <h5 
+          <h5
             className="cursor-pointer text-yellow-500 hover:text-yellow-600"
             onClick={() => setIsModalVisible(true)} // Show modal when clicking "Leave a Review"
           >
@@ -629,7 +634,7 @@ export default function ProductDetail() {
           </h5>
         </div>
 
-        {/* Display Reviews */}
+
         <div className="space-y-4">
           {reviews.map((review, index) => (
             <div key={index} className="border p-4 rounded-lg bg-gray-100">
@@ -643,7 +648,7 @@ export default function ProductDetail() {
         </div>
       </div>
 
-      {/* Review Modal */}
+
       <Modal
         title="Leave a Review"
         visible={isModalVisible}
@@ -702,3 +707,7 @@ export default function ProductDetail() {
     </div>
   );
 }
+
+
+
+

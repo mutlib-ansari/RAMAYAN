@@ -1,6 +1,7 @@
 
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef   } from 'react';
+import './Styles2.css'
 import icon1 from '../Assests/icon1.png';
 import bg from '../Assests/shape-1.png';
 import bg2 from '../Assests/shape-2.png';
@@ -36,9 +37,34 @@ export default function Tebs() {
     },
   ];
 
+  
+  const sectionRef = useRef(null);
+ 
+  const [isVisible, setIsVisible] = useState({ section: false });
+
+  const handleScroll = (entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        if (entry.target === sectionRef.current) {
+          setIsVisible(prev => ({ ...prev, section: true }));
+        } 
+      }
+    });
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(handleScroll);
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    
+    return () => {
+      if (sectionRef.current) observer.unobserve(sectionRef.current);
+    };
+  }, []);
+
   return (
 
-    <div className=" bg-gray-100 mt-36 relative grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1  " >
+    <div ref={sectionRef}  className={`bg-gray-100 mt-36 relative grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1  ${isVisible.section ? 'fade-in-down visible' : 'fade-in-down'} `}>
       {/* Background Images */}
       <img className="absolute right-10 h-40 md:w-30" src={bg} alt="bg1" />
       <img className="absolute left-0 bottom-0 h-40 md:w-30" src={bg2} alt="bg2" />
