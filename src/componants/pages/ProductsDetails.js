@@ -503,6 +503,7 @@ import stachuImage2 from '../Assests/naks1.png';
 import stachuImage3 from '../Assests/naks2.png';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import '../Herosection/Styles.css'
 
 const { TextArea } = Input;
 
@@ -619,7 +620,7 @@ export default function ProductDetail() {
 
           <p className="mt-4 text-gray-700">{product.description}</p>
 
-          <Link to='/Addtocard'><Button className="mt-6 bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4">Add to Cart</Button></Link>
+          <Link to='/Addtocard'><Button className="custom-button mt-6 py-2 px-4">Add to Cart</Button></Link>
         </div>
       </div>
 
@@ -628,7 +629,7 @@ export default function ProductDetail() {
           <h3 className="text-xl font-bold mb-4">Customer Reviews</h3>
           <h5
             className="cursor-pointer text-yellow-500 hover:text-yellow-600"
-            onClick={() => setIsModalVisible(true)} // Show modal when clicking "Leave a Review"
+            onClick={() => setIsModalVisible(true)}
           >
             Leave a Review
           </h5>
@@ -672,7 +673,7 @@ export default function ProductDetail() {
             onChange={(e) => setNewReview({ ...newReview, comment: e.target.value })}
             rows={4}
           />
-          <Button onClick={handleReviewSubmit} className="bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 mt-4">
+          <Button onClick={handleReviewSubmit} className="custom-button py-2 px-4 mt-4">
             Submit Review
           </Button>
         </div>

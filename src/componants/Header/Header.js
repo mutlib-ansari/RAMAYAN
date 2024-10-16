@@ -436,13 +436,15 @@
 
 
 
-import React, { useState, useEffect , memo } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import { Modal, Input, Button } from 'antd';
 import { CloseOutlined, DownOutlined, UpOutlined, GooglePlusOutlined } from '@ant-design/icons';
 import Image1 from '../Assests/image1.png';
 import Image2 from '../Assests/image2.png';
 import Image3 from '../Assests/image3.png';
 import Image4 from '../Assests/image4.png';
+import Image7 from '../Assests/image7.png';
+import Image8 from '../Assests/image8.png';
 import Google from '../Assests/google.png'
 import { useNavigate } from 'react-router-dom';
 import Listing from '../pages/Listingpage'
@@ -451,7 +453,7 @@ import { Link } from 'react-router-dom';
 const { Search } = Input;
 
 export default memo(function Products() {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isSubSidebarOpen, setIsSubSidebarOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState(null); // To control the open submenu
@@ -519,8 +521,8 @@ export default memo(function Products() {
 
   return (
     <div className={` fixed bg-gradient-to-r from-gray-200 via-white w-full h-20 shadow-md  z-20 : ''}`}>
-      <div className="container mx-auto sticky top-0 flex justify-between items-center p-1">
-        
+      <div className="container mx-auto xl:max-w-6xl f sticky top-0 flex justify-between items-center p-1">
+
         {/* Main Sidebar */}
         {isSidebarOpen && (
           <div
@@ -541,10 +543,10 @@ export default memo(function Products() {
                   <Link to="./"><a href="#" className="block text-gray-700 hover:text-gray-900" onClick={toggleSidebar}>Home</a></Link>
                 </li>
 
-                <li>
+                {/* <li>
                  <Link to='./CartPage'> <a href="#" className="block text-gray-700 hover:text-gray-900" onClick={toggleSidebar}>Add to Card</a></Link>
-                </li>
-               
+                </li> */}
+
                 <li className="relative">
                   <div
                     className="flex justify-between items-center cursor-pointer text-gray-700 hover:text-gray-900"
@@ -566,7 +568,7 @@ export default memo(function Products() {
                 <li>
                   <a href="#" className="block text-gray-700 hover:text-gray-900 " onClick={toggleSidebar}>Contact</a>
                 </li>
-                
+
 
                 <Link to="/Listingpage" className="block text-gray-700 hover:text-gray-900" onClick={toggleSidebar}>Listing page</Link>
 
@@ -598,7 +600,7 @@ export default memo(function Products() {
                     <a href="#" className="block text-gray-700 hover:text-gray-900" onClick={toggleSidebar}>Our Team</a>
                   </li>
                   <li onClick={() => goToListingpage(Listing.Id)}>
-                    <a href="#" className="block text-gray-700 hover:text-gray-900"  onClick={toggleSidebar}>Our Story</a>
+                    <a href="#" className="block text-gray-700 hover:text-gray-900" onClick={toggleSidebar}>Our Story</a>
                   </li>
 
 
@@ -623,33 +625,42 @@ export default memo(function Products() {
 
         {/* Logo Section */}
         <div className="flex-none w-20 h-12 md:w-32 md:h-20">
-        <Link to="/"> <img src={Image1} alt="Logo" className="h-30 w-full object-contain" /> </Link>
+          <Link to="/"> <img src={Image1} alt="Logo" className="h-30 w-full object-contain" /> </Link>
         </div>
 
         {/* Location Selector and Search Bar */}
-        <div className="flex-grow flex items-center justify-center w-32 h-12 md:h-20 space-x-2 md:space-x-4">
+        <div className="flex-grow flex items-center justify-center w-32 h-12 md:h-20 space-x-1 md:space-x-4">
           <Search
             size="large"
             placeholder="Search Products"
             allowClear
-            onSearch={onSearch } 
+            onSearch={onSearch}
             style={{ width: '100%', maxWidth: 300 }}
           />
         </div>
 
         {/* Icons Section */}
-        <div className="flex justify-between items-center w-20 md:w-32 h-12 md:h-20 space-x-2">
-          {/* Icon1 - triggers the modal */}
+        {/* <div className="flex justify-between items-center w-20 md:w-32 h-12 md:h-20 space-x-2">
+        
           <img
             src={Image2}
             alt="Icon 1"
             className="w-8 h-8 hidden lg:block border border-black rounded cursor-pointer"
-            onClick={showModal} // Click to show modal
+            onClick={showModal} 
           />
+          <img
+            src={image7}
+            alt="Icon 1"
+            className="w-8 h-8 hidden lg:block border border-black rounded cursor-pointer"
+            onClick={showModal} 
+          />
+
+
+          
           <Link to='/CartPage'><img
             src={Image3}
             alt="Icon 2"
-            className="w-8 h-8 hidden lg:block border border-black rounded"
+            className="w-8 h-8 block lg:block border border-black rounded"
           />
           </Link>
           <img
@@ -658,9 +669,46 @@ export default memo(function Products() {
             className="w-8 h-8 block  lg:block border border-black rounded cursor-pointer"
             onClick={toggleSidebar}
           />
+        </div> */}
+
+        <div className="flex justify-between items-center w-32 md:w-32 h-12 md:h-20 space-x-2 lg:relative lg:right-10 ">
+
+          <img
+            src={Image2}
+            alt="Icon 1"
+            className="w-8 h-8 hidden lg:block border border-black rounded cursor-pointer"
+            onClick={showModal}
+          />
+
+          
+
+          <Link to='/CartPage'>
+            <img
+              src={Image3}
+              alt="Icon 2"
+              className="w-8 h-8 block lg:block border border-black rounded cursor-pointer "
+            />
+          </Link>
+
+          <img
+            src={Image4}
+            alt="Icon 3"
+            className="w-8 h-8 block lg:block border border-black rounded cursor-pointer"
+            onClick={toggleSidebar}
+          />
+
+         <Link to="/WishlistPage">
+            <img
+              src={Image8}
+              alt="Icon 7"
+              className="w-8 h-8 hidden lg:block border border-black rounded cursor-pointer"
+
+            />
+          </Link>
         </div>
 
-       
+
+
       </div>
 
       {/* Modal triggered by Icon1 */}
@@ -681,14 +729,182 @@ export default memo(function Products() {
         <p className='flex justify-center leading-loose'>Do not have an account?<br></br><a>Sign Up.</a></p>
 
         <span className='flex justify-center mt-7'>OR</span>
-         <div className='flex justify-center mt-6 border' ><img className=' flex justify-center h-16' src={Google} />
-                      <span className='translate-y-5'>continue with Google</span>           
-         </div>
+        <div className='flex justify-center mt-6 border' ><img className=' flex justify-center h-16' src={Google} />
+          <span className='translate-y-5'>continue with Google</span>
+        </div>
 
       </Modal>
 
-       
+
 
     </div>
   );
 });  
+
+
+
+// import React, { useState, useEffect, memo } from 'react';
+// import { Modal, Input, Button } from 'antd';
+// import { CloseOutlined, DownOutlined, UpOutlined, GooglePlusOutlined } from '@ant-design/icons';
+// import Image1 from '../Assests/image1.png';
+// import Image2 from '../Assests/image2.png';
+// import Image3 from '../Assests/image3.png';
+// import Image4 from '../Assests/image4.png';
+// import Image7 from '../Assests/image7.png';
+// import Google from '../Assests/google.png';
+// import { useNavigate } from 'react-router-dom';
+// import Listing from '../pages/Listingpage';
+// import { Link } from 'react-router-dom';
+
+// const { Search } = Input;
+
+// export default memo(function Products() {
+//   const navigate = useNavigate();
+//   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+//   const [isSubSidebarOpen, setIsSubSidebarOpen] = useState(false);
+//   const [openMenu, setOpenMenu] = useState(null); // To control the open submenu
+//   const [isModalVisible, setIsModalVisible] = useState(false); // Modal visibility for Icon1
+//   const [isBlurActive, setIsBlurActive] = useState(false); // Background blur effect
+
+//   const onSearch = (value) => {
+//     console.log(value);
+//   };
+
+//   const toggleSidebar = () => {
+//     setIsSidebarOpen(!isSidebarOpen);
+//   };
+
+//   const toggleSubMenu = (menu) => {
+//     setOpenMenu(openMenu === menu ? null : menu);
+//     setIsSubSidebarOpen(menu !== null);
+//   };
+
+//   const closeSidebar = () => {
+//     setIsSidebarOpen(false);
+//     setIsSubSidebarOpen(false); // Close both sidebars
+//   };
+
+//   const handleClickOutside = (event) => {
+//     const sidebar = document.getElementById('sidebar');
+//     const subSidebar = document.getElementById('subSidebar');
+
+//     if (
+//       sidebar &&
+//       !sidebar.contains(event.target) &&
+//       subSidebar &&
+//       !subSidebar.contains(event.target)
+//     ) {
+//       closeSidebar();
+//     }
+//   };
+
+//   // Show modal for Icon1 and activate background blur
+//   const showModal = () => {
+//     setIsModalVisible(true);
+//     setIsBlurActive(true);
+//   };
+
+//   // Close modal and remove background blur
+//   const closeModal = () => {
+//     setIsModalVisible(false);
+//     setIsBlurActive(false);
+//   };
+
+//   const goToListingpage = (ListingId) => {
+//     navigate(`/Listingpage/${ListingId}`); // Navigate to the product details page
+//   };
+
+//   useEffect(() => {
+//     if (isSidebarOpen || isSubSidebarOpen) {
+//       document.addEventListener('click', handleClickOutside);
+//     } else {
+//       document.removeEventListener('click', handleClickOutside);
+//     }
+//     return () => {
+//       document.removeEventListener('click', handleClickOutside);
+//     };
+//   }, [isSidebarOpen, isSubSidebarOpen]);
+
+//   return (
+//     <div className="fixed bg-gradient-to-r from-gray-200 via-white w-full h-20 shadow-md z-20">
+//       <div className="container mx-auto xl:max-w-6xl flex justify-between items-center">
+
+//         {/* Logo Section */}
+//         <div className="flex-none w-20 h-12 md:w-32 md:h-20">
+//           <Link to="/"> <img src={Image1} alt="Logo" className="h-30 w-full object-contain" /> </Link>
+//         </div>
+
+//         {/* Location Selector and Search Bar */}
+//         <div className="flex-grow flex items-center justify-center w-32 h-12 md:h-20 space-x-1 md:space-x-4">
+//           <Search
+//             size="large"
+//             placeholder="Search Products"
+//             allowClear
+//             onSearch={onSearch}
+//             style={{ width: '100%', maxWidth: 300 }}
+//           />
+//         </div>
+
+//         {/* Icons Section */}
+//         <div className="flex justify-between items-center w-20 md:w-32 h-12 md:h-20 space-x-2   ">
+//         <Link to="/WishlistPage">
+//             <img
+//               src={Image7}
+//               alt="Icon 7"
+//               className="w-8 h-8 lg:block border border-black rounded cursor-pointer "
+//               style={{ objectFit: 'cover' }} 
+//             />
+//           </Link>
+
+//           <img
+//             src={Image2}
+//             alt="Icon 1"
+//             className="w-8 h-8 lg:block border border-black rounded cursor-pointer"
+//             onClick={showModal}
+//           />
+
+        
+
+//           <Link to='/CartPage'>
+//             <img
+//               src={Image3}
+//               alt="Icon 2"
+//               className="w-8 h-8 lg:block border border-black rounded lg:mr-7"
+//             />
+//           </Link>
+
+//           <img
+//             src={Image4}
+//             alt="Icon 3"
+//             className="w-8 h-8 lg:block border border-black rounded cursor-pointer"
+//             onClick={toggleSidebar}
+//           />
+//         </div>
+
+//       </div>
+
+//       {/* Modal triggered by Icon1 */}
+//       <Modal
+//         title="Sign In"
+//         visible={isModalVisible}
+//         onCancel={closeModal}
+//         footer={null}
+//         centered
+//         bodyStyle={{ display: 'flex', flexDirection: 'column' }}
+//       >
+//         <Input placeholder="Email" style={{ marginBottom: 16 }} />
+//         <Input.Password placeholder="Password" style={{ marginBottom: 16 }} />
+//         <a className='flex justify-end mb-5'>Forget password?</a>
+//         <Button type="primary" onClick={closeModal} style={{ marginBottom: 16 }}>Sign In</Button>
+//         <Button onClick={closeModal}>Cancel</Button>
+//         <p className='flex justify-center leading-loose'>Do not have an account?<br /><a>Sign Up.</a></p>
+
+//         <span className='flex justify-center mt-7'>OR</span>
+//         <div className='flex justify-center mt-6 border'>
+//           <img className='flex justify-center h-16' src={Google} alt="Google" />
+//           <span className='translate-y-5'>Continue with Google</span>
+//         </div>
+//       </Modal>
+//     </div>
+//   );
+// });

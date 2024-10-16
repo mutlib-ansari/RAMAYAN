@@ -61,7 +61,11 @@
 module.exports = {
   content: ["./src/**/*.{html,js}"], // Adjust paths to match your project structure
   theme: {
+    
     extend: {
+      // container: {
+      //   center: true,
+      // },
       keyframes: {
         fadeRight: {
           '0%': { opacity: '0', transform: 'translateX(-100%)' },

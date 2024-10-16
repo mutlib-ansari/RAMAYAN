@@ -154,9 +154,9 @@ import { FacebookOutlined, InstagramOutlined, LinkedinOutlined, YoutubeOutlined 
 export default function Footer() {
     return (
         <div className="bg-yellow-600 text-white py-6 mt-10">
-            {/* Container */}
-            <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-4 md:px-0">
-                {/* Contact Us Section */}
+            
+            <div className="container mx-auto xl:max-w-6xl  grid grid-cols-1 md:grid-cols-3 gap-8 px-4 md:px-0">
+                
                 <div className="text-center md:text-left">
                     <h2 className="text-2xl font-bold">Contact Us</h2>
                     <p className="mt-4">
@@ -171,17 +171,17 @@ export default function Footer() {
                     </p>
                 </div>
 
-                {/* Logo & Description Section */}
+               
                 <div className="flex flex-col items-center justify-center text-center">
                     <img src={logo} alt="Cosmic Logo" className="mx-auto w-40 md:w-60 z-20 mb-4" />
                     <p className="text-center max-w-sm">
                         There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.
                     </p>
                     <div className="flex justify-center mt-6 space-x-4">
-                        <a href="#" className="text-white hover:text-gray-300 border rounded-full p-2"><FacebookOutlined /></a>
-                        <a href="#" className="text-white hover:text-gray-300 border rounded-full p-2"><InstagramOutlined /></a>
-                        <a href="#" className="text-white hover:text-gray-300 border rounded-full p-2"><LinkedinOutlined /></a>
-                        <a href="#" className="text-white hover:text-gray-300 border rounded-full p-2"><YoutubeOutlined /></a>
+                        <a href="#" className="text-white hover:text-gray-300 border rounded-full p-2  transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 duration-300  translate-y-3.5 transform-gpu"><FacebookOutlined /></a>
+                        <a href="#" className="text-white hover:text-gray-300 border rounded-full p-2  transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 duration-300  translate-y-3.5 transform-gpu"><InstagramOutlined /></a>
+                        <a href="#" className="text-white hover:text-gray-300 border rounded-full p-2  transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 duration-300  translate-y-3.5 transform-gpu"><LinkedinOutlined /></a>
+                        <a href="#" className="text-white hover:text-gray-300 border rounded-full p-2  transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 duration-300  translate-y-3.5 transform-gpu"><YoutubeOutlined /></a>
                     </div>
                 </div>
 
@@ -201,7 +201,7 @@ export default function Footer() {
 
             {/* Footer Bottom Full Width */}
             <div className="w-full bg-yellow-600 py-4 mt-8">
-                <div className="container mx-auto flex flex-col md:flex-row justify-between items-center text-sm px-4 md:px-0 space-y-4 md:space-y-0">
+                <div className="container mx-auto xl:max-w-6xl f flex flex-col md:flex-row justify-between items-center text-sm px-4 md:px-0 space-y-4 md:space-y-0">
                     <p>All Rights Reserved 2024</p>
                     <div className="flex justify-center space-x-2">
                         {/* Example payment method icons */}

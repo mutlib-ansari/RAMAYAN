@@ -8,6 +8,7 @@ import bg from '../Assests/bgimage.png';
 import stachu from '../Assests/stachu.png';
 import { Button } from "antd";
 import Image1 from '../Assests/image1.png';
+import { Link } from 'react-router-dom';
 
 export default function Dasbord() {
 
@@ -51,7 +52,7 @@ export default function Dasbord() {
        */}
       <div
      
-        className="container mx-auto flex flex-col md:flex-row  "
+        className="container mx-auto xl:max-w-6xl  flex flex-col md:flex-row  "
 
       >
 
@@ -68,8 +69,8 @@ export default function Dasbord() {
               believable.
             </p>
             <div className="mt-6 ">
-              <Button className=" bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 mt-4 mr-5"> know more</Button>
-              <Button className=" bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 mt-4"> contect us</Button>
+              <Link to="/BlogPage"><Button className=" custom-button mt-4 mr-5"> know more</Button></Link>
+              <Button className=" custom-button mt-4"> contect us</Button>
 
             </div>
           </div>

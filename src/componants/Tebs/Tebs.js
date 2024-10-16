@@ -64,8 +64,8 @@ export default function Tebs() {
 
   return (
 
-    <div ref={sectionRef}  className={`bg-gray-100 mt-36 relative grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1  ${isVisible.section ? 'fade-in-down visible' : 'fade-in-down'} `}>
-      {/* Background Images */}
+    <div className={`bg-gray-100 mt-36 relative grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1   `}>
+      <div  ref={sectionRef} className={`${isVisible.section ? 'fade-in-down visible' : 'fade-in-down'}`} >
       <img className="absolute right-10 h-40 md:w-30" src={bg} alt="bg1" />
       <img className="absolute left-0 bottom-0 h-40 md:w-30" src={bg2} alt="bg2" />
       {/* <img className="absolute right-10 opacity-25 md:w-0" src={bg3} alt="bg3" />
@@ -119,6 +119,7 @@ export default function Tebs() {
       </div>
 
       <div className='absolute right-0 -bottom-48 '><img src={floewr}/></div>
+      </div>
     </div>
 
   );

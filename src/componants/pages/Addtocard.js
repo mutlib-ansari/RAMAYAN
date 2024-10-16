@@ -1,89 +1,4 @@
-// // import React, { useState } from "react";
 
-// // const BuyProductModal = () => {
-// //   const [isOpen, setIsOpen] = useState(false);
-
-// //   // Function to handle opening and closing the modal
-// //   const toggleModal = () => {
-// //     setIsOpen(!isOpen);
-// //   };
-
-// //   return (
-// //     <div className="flex justify-center items-center h-screen">
-// //       {/* Button to trigger modal */}
-// //       <button
-// //         className="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700"
-// //         onClick={toggleModal}
-// //       >
-// //         Buy Product
-// //       </button>
-
-// //       {/* Modal */}
-// //       {isOpen && (
-// //         <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50">
-// //           <div className="bg-white rounded-lg shadow-lg w-1/3">
-// //             <div className="px-6 py-4">
-// //               <h2 className="text-xl font-bold mb-4">Buy Product</h2>
-
-// //               <form>
-// //                 <div className="mb-4">
-// //                   <label className="block text-gray-700 text-sm font-bold mb-2">
-// //                     Name
-// //                   </label>
-// //                   <input
-// //                     type="text"
-// //                     placeholder="Enter your name"
-// //                     className="w-full px-3 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500"
-// //                   />
-// //                 </div>
-// //                 <div className="mb-4">
-// //                   <label className="block text-gray-700 text-sm font-bold mb-2">
-// //                     Address
-// //                   </label>
-// //                   <input
-// //                     type="text"
-// //                     placeholder="Enter your address"
-// //                     className="w-full px-3 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500"
-// //                   />
-// //                 </div>
-
-// //                 <div className="mb-4">
-// //                   <label className="block text-gray-700 text-sm font-bold mb-2">
-// //                     Quantity
-// //                   </label>
-// //                   <input
-// //                     type="number"
-// //                     min="1"
-// //                     placeholder="Enter quantity"
-// //                     className="w-full px-3 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500"
-// //                   />
-// //                 </div>
-
-// //                 <div className="flex justify-end">
-// //                   <button
-// //                     type="button"
-// //                     className="bg-gray-300 text-gray-700 py-2 px-4 rounded hover:bg-gray-400 mr-2"
-// //                     onClick={toggleModal}
-// //                   >
-// //                     Cancel
-// //                   </button>
-// //                   <button
-// //                     type="submit"
-// //                     className="bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded "
-// //                   >
-// //                     Confirm Purchase
-// //                   </button>
-// //                 </div>
-// //               </form>
-// //             </div>
-// //           </div>
-// //         </div>
-// //       )}
-// //     </div>
-// //   );
-// // };
-
-// // export default BuyProductModal;
 
 // import React from 'react';
 // import { Input, Button, Form, Checkbox } from 'antd';
@@ -216,6 +131,7 @@ import React, { useEffect } from 'react';
 import { Input, Button, Form, Checkbox, Tooltip } from 'antd';
 import { CreditCardOutlined, InfoCircleOutlined } from '@ant-design/icons';
 import stachuImage from '../Assests/stachu.png'
+import '../Herosection/Styles.css'
 // import 'antd/dist/antd.css';
 
 const CheckoutForm = () => {
@@ -336,7 +252,7 @@ const CheckoutForm = () => {
 
         {/* Submit Button */}
         <Form.Item>
-          <Button type="primary" htmlType="submit" className="w-full bg-yellow-500 hover:hover:bg-yellow-600">
+          <Button type="primary" htmlType="submit" className="w-full custom-button">
             Pay Now
           </Button> 
         </Form.Item>
@@ -357,7 +273,7 @@ const OrderSummary = () => {
           className="w-16 h-24 object-cover rounded"
         />
         <div className="ml-4">
-          <h3 className="text-base font-semibold">CONTRASTING PANELED DRESS</h3>
+          <h3 className="text-base font-semibold">STACHU</h3>
           <p className="text-sm text-gray-500"></p>
         </div>
         <div className="ml-auto text-right">

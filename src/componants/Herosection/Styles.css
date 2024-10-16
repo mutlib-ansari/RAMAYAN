@@ -20,3 +20,15 @@
     transform: translateX(0);
   }
   
+  .custom-button {
+    background-color: #f0c519 !important; /* Default background color */
+    color: white !important;
+    padding: 10px 20px;
+    border: none !important;
+    margin: 5px !important;
+  }
+  
+  .custom-button:hover {
+    background-color: #e28e2e !important; /* Hover background color */
+    color: white !important;
+  }
