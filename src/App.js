@@ -296,7 +296,7 @@
 // export default App; 
 
 
-// src/App.js
+
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Dasbord from './componants/Dasbord/Dasbord';
@@ -314,6 +314,8 @@ import BlogPage from './componants/pages/Blogepage';
 import Loader from './componants/Loader';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import WishlistPage from './componants/pages/Wishlist';
+import Login from './componants/pages/Loginpage';
+import SignIn from './componants/pages/Singinpage';
 
 const AppRoutes = () => {
   const [routeLoading, setRouteLoading] = useState(false);
@@ -339,7 +341,7 @@ const AppRoutes = () => {
 
   return (
     <>
-      {routeLoading && <Loader message="Loading..." />} 
+      {routeLoading && <Loader />} 
       <Routes>
         <Route 
           path="/" 
@@ -350,6 +352,8 @@ const AppRoutes = () => {
               <Products />
               <Tebs />
               <Latestpost />
+              {/* <Login/> */}
+              
              
             </>
           } 
@@ -360,6 +364,8 @@ const AppRoutes = () => {
         <Route path="/CartPage" element={<CartPage />} />
         <Route path="/BlogPage" element={<BlogPage />} />
         <Route path="/WishlistPage" element={<WishlistPage/>} />
+        <Route path="/SignIn" element={<SignIn/>} />
+        
       </Routes>
     </>
   );
@@ -379,7 +385,7 @@ function App() {
   return (
     <Router>
       {initialLoading ? (
-        <Loader message="Welcome! Loading..." /> 
+        <Loader  /> 
       ) : (
         <>
           <Header />

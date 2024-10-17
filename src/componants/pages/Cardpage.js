@@ -417,6 +417,7 @@ import { PlusOutlined, MinusOutlined, DeleteOutlined } from '@ant-design/icons';
 import stachuImage from '../Assests/stachu.png'; // Replace with your product images as needed
 import { Link } from 'react-router-dom';
 import '../Products/Styles2.css'
+import bg from '../Assests/bgimage.png'
 
 const CartPage = () => {
   useEffect(() => {
@@ -460,7 +461,8 @@ const CartPage = () => {
   const totalPrice = product.price * product.quantity;
 
   return (
-    <div className="container mx-auto lg:max-w-6xl p-4 sm:p-8 relative top-20 mb-20">
+    <div style={{ backgroundImage: `url(${bg})` }} className='bg-cover bg-center relative top-20 mb-20' >
+    <div className="container mx-auto lg:max-w-6xl p-4 sm:p-8 ">
       <h1 className="text-xl sm:text-2xl font-semibold mb-6">Your cart</h1>
 
       {/* Cart Table */}
@@ -563,6 +565,7 @@ const CartPage = () => {
           </Link>
         </div>
       </div>
+    </div>
     </div>
   );
 };

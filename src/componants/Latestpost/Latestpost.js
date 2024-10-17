@@ -104,7 +104,7 @@ export default function Latestpost() {
     <div ref={sectionRef}  className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-9 ${isVisible.section ? 'fade-in-right visible' : 'fade-in-right'}`}>
       
       <div className='border p-4 md:p-6 bg-gray-100 flex flex-col items-center'>
-        <img className='h-auto w-full object-cover ' src={image6} alt="Post Image" />
+      <div className='overflow-hidden'><img className='h-auto w-full transition ease-out  delay-150  hover:-translate-y-1 hover:scale-125 duration-300' src={image6} alt="Post Image" /></div>
         <div className='flex justify-between w-full mt-4 text-gray-600'>
           <span className='flex items-center gap-2'>
             <UserOutlined />
@@ -122,8 +122,8 @@ export default function Latestpost() {
       </div>
 
       {/* Post 2 */}
-      <div className='border p-4 md:p-6 bg-gray-100 flex flex-col items-center'>
-        <img className='h-auto w-full object-cover' src={image6} alt="Post Image" />
+      <div className='border p-4 md:p-6 bg-gray-100 flex flex-col items-center '>
+        <div className='overflow-hidden'><img className='h-auto w-full transition ease-out  delay-150  hover:-translate-y-1 hover:scale-125 duration-300' src={image6} alt="Post Image" /></div>
         <div className='flex justify-between w-full mt-4 text-gray-600'>
           <span className='flex items-center gap-2'>
             <UserOutlined />
@@ -142,7 +142,7 @@ export default function Latestpost() {
 
       {/* Post 3 */}
       <div className='border p-4 md:p-6 bg-gray-100 flex flex-col items-center'>
-        <img className='h-auto w-full object-cover' src={image6} alt="Post Image" />
+      <div className='overflow-hidden'><img className='h-auto w-full transition ease-out  delay-150  hover:-translate-y-1 hover:scale-125 duration-300' src={image6} alt="Post Image" /></div>
         <div className='flex justify-between w-full mt-4 text-gray-600'>
           <span className='flex items-center gap-2'>
             <UserOutlined />
