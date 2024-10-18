@@ -555,7 +555,7 @@
 //             onClick={showModal}
 //           />
 
-        
+
 
 //           <Link to='/CartPage'>
 //             <img
@@ -618,6 +618,7 @@ import Google from '../Assests/google.png'
 import { useNavigate } from 'react-router-dom';
 import Listing from '../pages/Listingpage'
 import { Link } from 'react-router-dom';
+
 
 const { Search } = Input;
 
@@ -689,7 +690,7 @@ export default memo(function Products() {
   }, [isSidebarOpen, isSubSidebarOpen]);
 
   return (
-    <div className={` fixed bg-gradient-to-r from-gray-200 via-white w-full h-20 shadow-md  z-10`}>
+    <div className={` fixed bg-gradient-to-r from-gray-200 via-white w-full lg:h-20 h-16 shadow-md  z-10`}>
       <div className="container mx-auto xl:max-w-6xl  sticky top-0 flex justify-between items-center p-1">
 
         {/* Main Sidebar */}
@@ -794,11 +795,11 @@ export default memo(function Products() {
 
         {/* Logo Section */}
         <div className="flex-none w-20 h-12 md:w-32 md:h-20">
-          <Link to="/"> <img src={Image1} alt="Logo" className="h-30 w-full object-contain" /> </Link>
+          <Link to="/"> <img src={Image1} alt="Logo" className="h-30 w-full object-contain mt-2" /> </Link>
         </div>
 
         {/* Location Selector and Search Bar */}
-        <div className="flex-grow flex items-center justify-center w-32 h-12 md:h-20 space-x-1 md:space-x-4">
+        {/* <div className="flex-grow flex items-center justify-center w-32 h-12 md:h-20 space-x-1 md:space-x-4">
           <Search
             size="large"
             placeholder="Search Products"
@@ -806,7 +807,82 @@ export default memo(function Products() {
             onSearch={onSearch}
             style={{ width: '100%', maxWidth: 300 }}
           />
-        </div>
+        </div> */}
+        <nav className="bg-transparent hidden lg:block">
+          <ul className="flex space-x-8  ">
+
+            <li className="group relative p-4">
+              <a href="#" className="font-bold">HOME</a>
+
+              <ul className="absolute left-0 w-64 mt-4 hidden group-hover:block bg-gray-100 shadow-lg rounded-md p-4 space-y-2 transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-300  ">
+                <li><a href="#" className="block px-4 py-2 hover:bg-yellow-300">Home Layout 1</a></li>
+                <li><a href="#" className="block px-4 py-2 hover:bg-yellow-300">Home Layout 2</a></li>
+                <li><a href="#" className="block px-4 py-2 hover:bg-yellow-300">Home Layout 3</a></li>
+                <li><a href="#" className="block px-4 py-2 hover:bg-yellow-300">Home Layout 4</a></li>
+                <li><a href="#" className="block px-4 py-2 hover:bg-yellow-300">Home Layout 5</a></li>
+                <li><a href="#" className="block px-4 py-2 hover:bg-yellow-300">Home Layout 6</a></li>
+              </ul>
+            </li>
+
+
+            <li className="group relative p-4">
+              <a href="#" className="font-bold">SHOP</a>
+              <ul className="absolute left-0 w-64 mt-4 hidden group-hover:block bg-gray-100 shadow-lg rounded-md p-4 space-y-2  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-300">
+              <li><Link  className="block px-4 py-2 hover:bg-yellow-300">Products</Link></li>
+                <li><a href="#" className="block px-4 py-2 hover:bg-yellow-300">Products Layout 2</a></li>
+                <li><a href="#" className="block px-4 py-2 hover:bg-yellow-300">Products Layout 3</a></li>
+                <li><a href="#" className="block px-4 py-2 hover:bg-yellow-300">Products Layout 4</a></li>
+                <li><a href="#" className="block px-4 py-2 hover:bg-yellow-300">Products Layout 5</a></li>
+                <li><a href="#" className="block px-4 py-2 hover:bg-yellow-300">Products Layout 6</a></li>
+              </ul>
+
+            </li>
+            <li className="group relative p-4">
+              <a href="#" className="font-bold">PAGES</a>
+              <ul className="absolute left-0 mt-4 w-64 hidden group-hover:block bg-gray-100 shadow-lg rounded-md p-4 space-y-2  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-300">
+              <li><Link to="/Listingpage" className="block px-4 py-2 hover:bg-yellow-300">Listing page</Link> </li>
+                <li><a href="#" className="block px-4 py-2 hover:bg-yellow-300">Listing page</a></li>
+                <li><a href="#" className="block px-4 py-2 hover:bg-yellow-300">Listing page</a></li>
+                <li><a href="#" className="block px-4 py-2 hover:bg-yellow-300">Listing page</a></li>
+                <li><a href="#" className="block px-4 py-2 hover:bg-yellow-300">Listing page</a></li>
+              </ul>
+
+            </li>
+            <li className="group relative p-4">
+              <a href="#" className="font-bold">BLOG</a>
+              <ul className="absolute left-0 mt-4 w-64 hidden group-hover:block bg-gray-100 shadow-lg rounded-md p-4 space-y-2  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-300">
+              <li><Link to="/BlogPage"  className="block px-4 py-2 hover:bg-yellow-300">Blog page</Link></li>
+                <li><a href="#" className="block px-4 py-2 hover:bg-yellow-300">Blog page</a></li>
+                <li><a href="#" className="block px-4 py-2 hover:bg-yellow-300">Blog page</a></li>
+                <li><a href="#" className="block px-4 py-2 hover:bg-yellow-300">Blog page</a></li>
+              </ul>
+            </li>
+            <li className="group relative p-4">
+              <a href="#" className="font-bold">ABOUT US</a>
+              <ul className="absolute left-0 mt-4 w-64 hidden group-hover:block bg-gray-100 shadow-lg rounded-md p-4 space-y-2  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-300">
+              <li><a href="#" className="block px-4 py-2 hover:bg-yellow-300">Home Layout 1</a></li>
+                <li><a href="#" className="block px-4 py-2 hover:bg-yellow-300">Home Layout 2</a></li>
+                <li><a href="#" className="block px-4 py-2 hover:bg-yellow-300">Home Layout 3</a></li>
+                <li><a href="#" className="block px-4 py-2 hover:bg-yellow-300">Home Layout 4</a></li>
+                <li><a href="#" className="block px-4 py-2 hover:bg-yellow-300">Home Layout 5</a></li>
+                <li><a href="#" className="block px-4 py-2 hover:bg-yellow-300">Home Layout 6</a></li>
+              </ul>
+            </li>
+            <li className="group relative p-4">
+              <a href="#" className="font-bold">CONTACT US</a>
+              <ul className="absolute left-0 mt-4 w-64 hidden group-hover:block bg-gray-100 shadow-lg rounded-md p-4 space-y-2  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-300">
+              <li><a href="#" className="block px-4 py-2 hover:bg-yellow-300">Home Layout 1</a></li>
+                <li><a href="#" className="block px-4 py-2 hover:bg-yellow-300">Home Layout 2</a></li>
+                <li><a href="#" className="block px-4 py-2 hover:bg-yellow-300">Home Layout 3</a></li>
+                <li><a href="#" className="block px-4 py-2 hover:bg-yellow-300">Home Layout 4</a></li>
+                <li><a href="#" className="block px-4 py-2 hover:bg-yellow-300">Home Layout 5</a></li>
+                <li><a href="#" className="block px-4 py-2 hover:bg-yellow-300">Home Layout 6</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+
+
 
         {/* Icons Section */}
         {/* <div className="flex justify-between items-center w-20 md:w-32 h-12 md:h-20 space-x-2">
@@ -840,42 +916,42 @@ export default memo(function Products() {
           />
         </div> */}
 
-        <div className="flex justify-between items-center w-32 md:w-32 h-12 md:h-20 space-x-2  ">
+        <div className="flex justify-between items-center w-32 md:w-32 h-12 md:h-20 space-x-2">
 
           <Link to="./SignIn"><img
             src={Image2}
             alt="Icon 1"
-            className="w-6 h-6 hidden lg:block border border-black rounded cursor-pointer"
-            // onClick={showModal}
+            className="w-8 h-8 hidden lg:block border border-black rounded cursor-pointer"
+          // onClick={showModal}
           /></Link>
 
           <Link to="/WishlistPage">
             <img
               src={Image8}
               alt="Icon 7"
-              className="w-6 h-6 hidden lg:block border border-black rounded cursor-pointer"
+              className="w-8 h-8 block  lg:block border border-black rounded cursor-pointer"
 
             />
           </Link>
 
-          
+
 
           <Link to='/CartPage'>
             <img
               src={Image3}
               alt="Icon 2"
-              className="w-6 h-6 block lg:block border border-black rounded cursor-pointer "
+              className="w-8 h-8 block lg:block border border-black rounded cursor-pointer "
             />
           </Link>
 
           <img
             src={Image4}
             alt="Icon 3"
-            className="w-6 h-6 block lg:block border border-black rounded cursor-pointer"
+            className="w-8 h-8 block lg:hidden border border-black rounded cursor-pointer"
             onClick={toggleSidebar}
           />
 
-         
+
         </div>
 
 
@@ -910,5 +986,5 @@ export default memo(function Products() {
 
     </div>
   );
-});  
+});
 

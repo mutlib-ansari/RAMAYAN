@@ -219,7 +219,7 @@ import { Rate, Button, Checkbox } from 'antd';
 import stachuImage from '../Assests/stachu.png';
 import { DownOutlined, UpOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
-import ProductDetail from './ProductsDetails';
+import '../Products/Styles2.css'
 
 
 
@@ -260,11 +260,42 @@ export default memo(function Listingpage() {
 
   return (
 
-    <div className="container mx-auto grid grid-cols-1 lg:grid-cols-3 gap-5 p-5   ">
+    <div className="container mx-auto lg:max-w-6xl grid grid-cols-1 lg:grid-cols-3 pt-5   ">
 
-      <div className="lg:w-1/2 w-full mt-20 ">
+      <div className="lg:w-3/4 mt-20 ">
 
-        <ul className="bg-gray-100 rounded shadow-lg">
+
+      
+
+        <ul className="bg-gray-100 rounded shadow-lg p-7">
+
+        
+      <div className="">
+       
+        <aside className="w-full p-4 ">
+          <h2 className="text-xl font-bold mb-4">Filter</h2>
+          <div className="mb-4">
+            <h3 className="font-semibold mb-2">Filter by Brands</h3>
+            <ul>
+              <li><input type="checkbox" id="casali" /> <label htmlFor="casali">Casali</label></li>
+              <li><input type="checkbox" id="decar" /> <label htmlFor="decar">Decar</label></li>
+              <li><input type="checkbox" id="fantini"/> <label htmlFor="fantini">Fantini</label></li>
+              <li><input type="checkbox" id="flamentstyle" /> <label htmlFor="flamentstyle">Flamentstyle</label></li>
+            </ul>
+          </div>
+          <div className="mb-4">
+            <h3 className="font-semibold mb-2">Filter by Price</h3>
+            <input type="range" min="10" max="599" className="w-full custom-button" />
+            <p>Price: $10 - $599</p>
+          </div>
+        </aside>
+
+        
+      
+      </div>
+    
+
+
           <li className="p-4 border-b cursor-pointer" onClick={() => toggleMenu('menu1')}>
             <div className="flex justify-between items-center">
               <span>categroy</span>
@@ -272,7 +303,7 @@ export default memo(function Listingpage() {
             </div>
           </li>
           {/* {openMenu === 'menu1' && ( */}
-          <ul className="bg-gray-200 transition-all duration-300">
+          <ul className="bg-gray-100 transition-all duration-300">
             <span className='p-3 font-bold hover:bg-yellow-300'>Products</span>
             <li className="p-3 hover:bg-yellow-300">Accessories</li>
             <li className="p-3 hover:bg-yellow-300">Cameras & Photography</li>
@@ -420,14 +451,56 @@ export default memo(function Listingpage() {
           </ul> */}
       </div>
 
+      
+      <div className="lg:w-1/3 w-full h-1/2 mt-6 col-span-2">
+      
+        <div className="flex flex-col lg:flex-row gap-5 mt-9 pt-5 ">
+          {data &&
+            data.map((product) => (
+              <div
+                key={product.id}
+                className="text-center border bg-gray-200 p-2 relative rounded-lg shadow-md w-full "
+              >
+                {product.discount && (
+                  <span className="absolute bg-yellow-600 text-white rounded-full top-2 right-2 px-2 py-1">
+                    {product.discount}
+                  </span>
+                )}
+                <div className="flex justify-center items-center h-30">
+                  <img
+                    className="w-1/2"
+                    src={imageMap[product.imageName] || 'fallback-image.png'}
+                    alt={product.name}
+                  />
+                </div>
+                <h3 className="mt-3">{product.name}</h3>
+                <span className="font-bold block mt-2">
+                  <span className="line-through mr-2">
+                    ${product.originalPrice.toFixed(2)}
+                  </span>
+                  ${product.discountedPrice.toFixed(2)}
+                </span>
+                <Rate allowHalf defaultValue={product.rating} />
+                <div className="flex justify-center mt-5">
+                  <Link to={`/ProductsDetail/${product.id}`}>
+                    <Button className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 mr-3">
+                      Know more
+                    </Button>
+                  </Link>
+                  <Link to="/Addtocard"><Button className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2">
+                    Add to Cart
+                  </Button></Link>
+                </div>
+              </div>
+            ))}
+        </div>
 
-      <div className="lg:w-3/5 w-full h-1/2 mt-6">
         <div className="flex flex-col lg:flex-row gap-5 mt-9 pt-5">
           {data &&
             data.map((product) => (
               <div
                 key={product.id}
-                className="text-center border bg-gray-200 p-7 relative rounded-lg shadow-md "
+                className="text-center border bg-gray-200 p-2 relative rounded-lg shadow-md w-full"
               >
                 {product.discount && (
                   <span className="absolute bg-yellow-600 text-white rounded-full top-2 right-2 px-2 py-1">
@@ -468,48 +541,7 @@ export default memo(function Listingpage() {
             data.map((product) => (
               <div
                 key={product.id}
-                className="text-center border bg-gray-200 p-7 relative rounded-lg shadow-md "
-              >
-                {product.discount && (
-                  <span className="absolute bg-yellow-600 text-white rounded-full top-2 right-2 px-2 py-1">
-                    {product.discount}
-                  </span>
-                )}
-                <div className="flex justify-center items-center h-40">
-                  <img
-                    className="w-1/2"
-                    src={imageMap[product.imageName] || 'fallback-image.png'}
-                    alt={product.name}
-                  />
-                </div>
-                <h3 className="mt-3">{product.name}</h3>
-                <span className="font-bold block mt-2">
-                  <span className="line-through mr-2">
-                    ${product.originalPrice.toFixed(2)}
-                  </span>
-                  ${product.discountedPrice.toFixed(2)}
-                </span>
-                <Rate allowHalf defaultValue={product.rating} />
-                <div className="flex justify-center mt-5">
-                  <Link to={`/ProductsDetail/${product.id}`}>
-                    <Button className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 mr-3">
-                      Know more
-                    </Button>
-                  </Link>
-                  <Link to="/Addtocard"><Button className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2">
-                    Add to Cart
-                  </Button></Link>
-                </div>
-              </div>
-            ))}
-        </div>
-
-        <div className="flex flex-col lg:flex-row gap-5 mt-9 pt-5">
-          {data &&
-            data.map((product) => (
-              <div
-                key={product.id}
-                className="text-center border bg-gray-200 p-7 relative rounded-lg shadow-md "
+                className="text-center border bg-gray-200 p-2 relative rounded-lg shadow-md w-full "
               >
                 {product.discount && (
                   <span className="absolute bg-yellow-600 text-white rounded-full top-2 right-2 px-2 py-1">

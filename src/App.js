@@ -316,6 +316,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import WishlistPage from './componants/pages/Wishlist';
 import Login from './componants/pages/Loginpage';
 import SignIn from './componants/pages/Singinpage';
+import BackToTopButton from './componants/Backtotopbutton';
 
 const AppRoutes = () => {
   const [routeLoading, setRouteLoading] = useState(false);
@@ -353,6 +354,7 @@ const AppRoutes = () => {
               <Tebs />
               <Latestpost />
               {/* <Login/> */}
+              <BackToTopButton/>
               
              
             </>
@@ -365,6 +367,8 @@ const AppRoutes = () => {
         <Route path="/BlogPage" element={<BlogPage />} />
         <Route path="/WishlistPage" element={<WishlistPage/>} />
         <Route path="/SignIn" element={<SignIn/>} />
+       
+        
         
       </Routes>
     </>

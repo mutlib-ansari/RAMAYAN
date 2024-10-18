@@ -1,10 +1,4 @@
-// import React from 'react'
 
-// export default function Footer() {
-//   return (
-//     <div></div>
-//   )
-// }
 
 // import React from 'react';
 // import logo from '../Assests/logo.png';
@@ -150,13 +144,14 @@ import React from 'react';
 import logo from '../Assests/logo.png';
 import footerlogo from '../Assests/footerlogo.png';
 import { FacebookOutlined, InstagramOutlined, LinkedinOutlined, YoutubeOutlined } from '@ant-design/icons';
+import '../Herosection/Styles.css'
 
 export default function Footer() {
     return (
         <div className="bg-yellow-600 text-white py-6 mt-10">
-            
+
             <div className="container mx-auto xl:max-w-6xl  grid grid-cols-1 md:grid-cols-3 gap-8 px-4 md:px-0">
-                
+
                 <div className="text-center md:text-left">
                     <h2 className="text-2xl font-bold">Contact Us</h2>
                     <p className="mt-4">
@@ -171,7 +166,7 @@ export default function Footer() {
                     </p>
                 </div>
 
-               
+
                 <div className="flex flex-col items-center justify-center text-center">
                     <img src={logo} alt="Cosmic Logo" className="mx-auto w-40 md:w-60 z-20 mb-4" />
                     <p className="text-center max-w-sm">
@@ -197,6 +192,7 @@ export default function Footer() {
                         <li><a href="#" className="hover:underline">Contact Us</a></li>
                     </ul>
                 </div>
+
             </div>
 
             {/* Footer Bottom Full Width */}
