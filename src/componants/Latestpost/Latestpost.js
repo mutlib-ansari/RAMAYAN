@@ -99,7 +99,7 @@ export default function Latestpost() {
 
   return (
 
-    <div   className={`container mx-auto xl:max-w-6xl  mt-14  `} >
+    <div   className={`container mx-auto xl:max-w-6xl  mt-14 mb-10 `} >
       <spana className='text-4xl  font-bold '>Our Latest Post</spana>
     <div ref={sectionRef}  className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-9 ${isVisible.section ? 'fade-in-right visible' : 'fade-in-right'}`}>
       

@@ -297,7 +297,7 @@ export default memo(function Products() {
             <Rate allowHalf defaultValue={product.rating} />
             <div className='flex justify-center mt-5'>
               <Link to={`/ProductsDetail/${product.id}`} ><Button
-                className='custom-button'
+                className='custom-button  transition ease-out delay-150  hover:scale-110  duration-300'
               // onClick={() => goToProductDetail(product.id)} // Call the function with product ID
               >
                 Know more
@@ -311,7 +311,7 @@ export default memo(function Products() {
 
 
               <Link to="/Addtocard">
-                <Button className="custom-button">
+                <Button className="custom-button  transition ease-out delay-150  hover:scale-110  duration-300">
                   Add to Cart
                 </Button>
               </Link>

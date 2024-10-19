@@ -286,13 +286,13 @@ export default function Dashboard() {
 
         <div ref={sectionRef} className={`md:w-1/2 flex justify-center mt-5  items-center md:translate-y-0 ${isVisible.section ? 'fade-in-right visible' : 'fade-in-right'}`}>
           <div className='w-1/2 float-end'><Slider {...sliderSettings}>
-            <div className=""> {/* Added flex properties */}
+            <div className=""> 
               <img src={stachu1} className=" h-3/45 object-cover" alt="Stachu 1" />
             </div>
-            <div className=""> {/* Added flex properties */}
+            <div className=""> 
               <img src={stachu2} className="h-3/4" alt="Stachu 2" />
             </div>
-            <div className=""> {/* Added flex properties */}
+            <div className=""> 
               <img src={stachu3} className="h-3/4" alt="Stachu 3" />
             </div>
           </Slider></div>

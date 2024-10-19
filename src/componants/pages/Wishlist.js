@@ -158,7 +158,7 @@ const WishlistPage = () => {
   };
 
   return (
-    <div style={{ backgroundImage: `url(${bg})` }} className='bg-cover bg-center relative top-20 mb-20'>
+    <div style={{ backgroundImage: `url(${bg})` }} className='bg-cover bg-center'>
     <div className="container mx-auto py-8 lg:max-w-6xl  px-4">
       <h1 className="text-4xl lg:text-6xl font-semibold mb-6 text-center">Your Wishlist</h1>
       <div className="flex justify-center gap-5 text-2xl font-semibold text-center mb-20">

@@ -461,7 +461,7 @@ const CartPage = () => {
   const totalPrice = product.price * product.quantity;
 
   return (
-    <div style={{ backgroundImage: `url(${bg})` }} className='bg-cover bg-center relative top-20 mb-20' >
+    <div style={{ backgroundImage: `url(${bg})` }} className='bg-cover bg-center' >
     <div className="container mx-auto lg:max-w-6xl p-4 sm:p-8 ">
       <h1 className="text-xl sm:text-2xl font-semibold mb-6">Your cart</h1>
 

@@ -552,7 +552,7 @@ export default function Herosection() {
                 <h2 className="text-2xl md:text-4xl">Lorem ipsum dolor sit <span className="text-yellow-600">consectetur,</span></h2><br />
                 <p className="text-sm md:text-base">There are many variations of passages of Lorem Ipsum available.There are many variations of passages of Lorem Ipsum available, but
                 the majority have suffered alteration in some form,</p>
-                <Link to="/BlogPage"><Button className="custom-button">know more</Button></Link>
+                <Link to="/BlogPage"><Button className="custom-button  transition ease-out delay-150  hover:scale-110  duration-300">know more</Button></Link>
               </div>
             </div>
           </div>
@@ -572,7 +572,7 @@ export default function Herosection() {
                 <h2 className="text-2xl md:text-4xl">Lorem ipsum dolor sit <span className="text-yellow-600">consectetur,</span></h2><br />
                 <p className="text-sm md:text-base">There are many variations of passages of Lorem Ipsum available.There are many variations of passages of Lorem Ipsum available, but
                 the majority have suffered alteration in some form,</p>
-                <Link to="/BlogPage"><Button className="custom-button">know more</Button></Link>
+                <Link to="/BlogPage"><Button className="custom-button  transition ease-out delay-150  hover:scale-110  duration-300">know more</Button></Link>
               </div>
             </div>
           </div>
@@ -592,7 +592,7 @@ export default function Herosection() {
                 <h2 className="text-2xl md:text-4xl">Lorem ipsum dolor sit <span className="text-yellow-600">consectetur,</span></h2><br />
                 <p className="text-sm md:text-base">There are many variations of passages of Lorem Ipsum available.There are many variations of passages of Lorem Ipsum available, but
                 the majority have suffered alteration in some form,</p>
-                <Link to="/BlogPage"><Button className="custom-button">know more</Button></Link>
+                <Link to="/BlogPage"><Button className="custom-button  transition ease-out delay-150  hover:scale-110  duration-300">know more</Button></Link>
               </div>
             </div>
           </div>

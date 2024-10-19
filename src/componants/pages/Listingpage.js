@@ -260,40 +260,34 @@ export default memo(function Listingpage() {
 
   return (
 
-    <div className="container mx-auto lg:max-w-6xl grid grid-cols-1 lg:grid-cols-3 pt-5   ">
+    <div className="container mx-auto xl:max-w-6xl grid grid-cols-1 lg:grid-cols-3 pt-5 mb-10">
 
-      <div className="lg:w-3/4 mt-20 ">
-
-
-      
-
+      <div className="lg:w-3/4  lg:mt-20 ">
         <ul className="bg-gray-100 rounded shadow-lg p-7">
+          <div className="">
 
-        
-      <div className="">
-       
-        <aside className="w-full p-4 ">
-          <h2 className="text-xl font-bold mb-4">Filter</h2>
-          <div className="mb-4">
-            <h3 className="font-semibold mb-2">Filter by Brands</h3>
-            <ul>
-              <li><input type="checkbox" id="casali" /> <label htmlFor="casali">Casali</label></li>
-              <li><input type="checkbox" id="decar" /> <label htmlFor="decar">Decar</label></li>
-              <li><input type="checkbox" id="fantini"/> <label htmlFor="fantini">Fantini</label></li>
-              <li><input type="checkbox" id="flamentstyle" /> <label htmlFor="flamentstyle">Flamentstyle</label></li>
-            </ul>
-          </div>
-          <div className="mb-4">
-            <h3 className="font-semibold mb-2">Filter by Price</h3>
-            <input type="range" min="10" max="599" className="w-full custom-button" />
-            <p>Price: $10 - $599</p>
-          </div>
-        </aside>
+            <aside className="w-full p-4 ">
+              <h2 className="text-xl font-bold mb-4">Filter</h2>
+              <div className="mb-4">
+                <h3 className="font-semibold mb-2">Filter by Brands</h3>
+                <ul>
+                  <li><input type="checkbox" id="casali" /> <label htmlFor="casali">Casali</label></li>
+                  <li><input type="checkbox" id="decar" /> <label htmlFor="decar">Decar</label></li>
+                  <li><input type="checkbox" id="fantini" /> <label htmlFor="fantini">Fantini</label></li>
+                  <li><input type="checkbox" id="flamentstyle" /> <label htmlFor="flamentstyle">Flamentstyle</label></li>
+                </ul>
+              </div>
+              <div className="mb-4">
+                <h3 className="font-semibold mb-2">Filter by Price</h3>
+                <input type="range" min="1000" max="50000" className="w-full custom-button" />
+                <p>Price: ₹1000 - ₹50,000</p>
+              </div>
+            </aside>
 
-        
-      
-      </div>
-    
+
+
+          </div>
+
 
 
           <li className="p-4 border-b cursor-pointer" onClick={() => toggleMenu('menu1')}>
@@ -451,24 +445,35 @@ export default memo(function Listingpage() {
           </ul> */}
       </div>
 
-      
-      <div className="lg:w-1/3 w-full h-1/2 mt-6 col-span-2">
-      
-        <div className="flex flex-col lg:flex-row gap-5 mt-9 pt-5 ">
+
+      <div className="lg:w-1/3 w-full h-1/2 mt-6 col-span-2 ">
+
+        <div className='mt-16 font-bold text-xl flex ' > <h3> Showing 1-9 of 65 results</h3>
+          {/* <div className='flex  gap-4 float-end order-last'><ul className=' '>
+            <li className=' '><img width="24" height="24" src="https://img.icons8.com/external-tal-revivo-regular-tal-revivo/24/external-technical-drawing-with-versatile-angle-of-views-of-part-wireframe-regular-tal-revivo.png" alt="external-technical-drawing-with-versatile-angle-of-views-of-part-wireframe-regular-tal-revivo"/></li>
+            <li><img width="25" height="205" src="https://img.icons8.com/material/24/circled-menu.png" alt="circled-menu"/></li>
+          </ul></div> */}
+        </div>
+
+
+        <div className="flex flex-col lg:flex-row gap-5 mt-2 pt-5 ">
+
+
           {data &&
+
             data.map((product) => (
               <div
                 key={product.id}
-                className="text-center border bg-gray-200 p-2 relative rounded-lg shadow-md w-full "
+                className="text-center border bg-gray-200  relative rounded-lg shadow-md w-full "
               >
                 {product.discount && (
                   <span className="absolute bg-yellow-600 text-white rounded-full top-2 right-2 px-2 py-1">
                     {product.discount}
                   </span>
                 )}
-                <div className="flex justify-center items-center h-30">
+                <div className="flex justify-center items-center h-56">
                   <img
-                    className="w-1/2"
+                    className="w-1/2 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 duration-300 scale-75 translate-y-3.5 transform-gpu"
                     src={imageMap[product.imageName] || 'fallback-image.png'}
                     alt={product.name}
                   />
@@ -483,11 +488,11 @@ export default memo(function Listingpage() {
                 <Rate allowHalf defaultValue={product.rating} />
                 <div className="flex justify-center mt-5">
                   <Link to={`/ProductsDetail/${product.id}`}>
-                    <Button className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 mr-3">
+                    <Button className="custom-button  text-white px-4 py-2 mr-3  transition ease-out delay-150  hover:scale-110  duration-300">
                       Know more
                     </Button>
                   </Link>
-                  <Link to="/Addtocard"><Button className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2">
+                  <Link to="/Addtocard"><Button className="custom-button  text-white px-4 py-2 transition ease-out delay-150  hover:scale-110  duration-300">
                     Add to Cart
                   </Button></Link>
                 </div>
@@ -500,16 +505,16 @@ export default memo(function Listingpage() {
             data.map((product) => (
               <div
                 key={product.id}
-                className="text-center border bg-gray-200 p-2 relative rounded-lg shadow-md w-full"
+                className="text-center border bg-gray-200  relative rounded-lg shadow-md w-full"
               >
                 {product.discount && (
                   <span className="absolute bg-yellow-600 text-white rounded-full top-2 right-2 px-2 py-1">
                     {product.discount}
                   </span>
                 )}
-                <div className="flex justify-center items-center h-40">
+                <div className="flex justify-center items-center h-56">
                   <img
-                    className="w-1/2"
+                    className="w-1/2 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 duration-300 scale-75 translate-y-3.5 transform-gpu"
                     src={imageMap[product.imageName] || 'fallback-image.png'}
                     alt={product.name}
                   />
@@ -522,13 +527,13 @@ export default memo(function Listingpage() {
                   ${product.discountedPrice.toFixed(2)}
                 </span>
                 <Rate allowHalf defaultValue={product.rating} />
-                <div className="flex justify-center mt-5">
+                <div className="flex justify-center mt-5 ">
                   <Link to={`/ProductsDetail/${product.id}`}>
-                    <Button className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 mr-3">
+                    <Button className="custom-button text-white px-4 py-2 mr-3  transition ease-out delay-150  hover:scale-110  duration-300">
                       Know more
                     </Button>
                   </Link>
-                  <Link to="/Addtocard"><Button className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2">
+                  <Link to="/Addtocard"><Button className="custom-button  text-white px-4 py-2  transition ease-out delay-150  hover:scale-110  duration-300">
                     Add to Cart
                   </Button></Link>
                 </div>
@@ -541,16 +546,16 @@ export default memo(function Listingpage() {
             data.map((product) => (
               <div
                 key={product.id}
-                className="text-center border bg-gray-200 p-2 relative rounded-lg shadow-md w-full "
+                className="text-center border bg-gray-200  relative rounded-lg shadow-md w-full "
               >
                 {product.discount && (
                   <span className="absolute bg-yellow-600 text-white rounded-full top-2 right-2 px-2 py-1">
                     {product.discount}
                   </span>
                 )}
-                <div className="flex justify-center items-center h-40">
+                <div className="flex justify-center items-center h-56">
                   <img
-                    className="w-1/2"
+                    className="w-1/2 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 duration-300 scale-75 translate-y-3.5 transform-gpu"
                     src={imageMap[product.imageName] || 'fallback-image.png'}
                     alt={product.name}
                   />
@@ -565,17 +570,71 @@ export default memo(function Listingpage() {
                 <Rate allowHalf defaultValue={product.rating} />
                 <div className="flex justify-center mt-5">
                   <Link to={`/ProductsDetail/${product.id}`}>
-                    <Button className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 mr-3">
+                    <Button className="custom-button  text-white px-4 py-2 mr-3  transition ease-out delay-150  hover:scale-110  duration-300">
                       Know more
                     </Button>
                   </Link>
-                  <Link to="/Addtocard"><Button className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2">
+                  <Link to="/Addtocard"><Button className="custom-button  text-white px-4 py-2  transition ease-out delay-150  hover:scale-110  duration-300">
                     Add to Cart
                   </Button></Link>
                 </div>
               </div>
             ))}
         </div>
+
+        <div className="flex flex-col lg:flex-row gap-5 mt-9 pt-5">
+          {data &&
+            data.map((product) => (
+              <div
+                key={product.id}
+                className="text-center border bg-gray-200  relative rounded-lg shadow-md w-full "
+              >
+                {product.discount && (
+                  <span className="absolute bg-yellow-600 text-white rounded-full top-2 right-2 px-2 py-1">
+                    {product.discount}
+                  </span>
+                )}
+                <div className="flex justify-center items-center h-56">
+                  <img
+                    className="w-1/2 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 duration-300 scale-75 translate-y-3.5 transform-gpu"
+                    src={imageMap[product.imageName] || 'fallback-image.png'}
+                    alt={product.name}
+                  />
+                </div>
+                <h3 className="mt-3">{product.name}</h3>
+                <span className="font-bold block mt-2">
+                  <span className="line-through mr-2">
+                    ${product.originalPrice.toFixed(2)}
+                  </span>
+                  ${product.discountedPrice.toFixed(2)}
+                </span>
+                <Rate allowHalf defaultValue={product.rating} />
+                <div className="flex justify-center mt-5">
+                  <Link to={`/ProductsDetail/${product.id}`}>
+                    <Button className="custom-button  text-white px-4 py-2 mr-3  transition ease-out delay-150  hover:scale-110  duration-300">
+                      Know more
+                    </Button>
+                  </Link>
+                  <Link to="/Addtocard"><Button className="custom-button  text-white px-4 py-2  transition ease-out delay-150  hover:scale-110  duration-300">
+                    Add to Cart
+                  </Button></Link>
+                </div>
+              </div>
+            ))}
+        </div>
+      </div>
+
+      <div className='mt-10 flex'  >
+      <Link to="/Listingpage"><ul className='flex gap-3'>
+            <li><img width="40" height="40" src="https://img.icons8.com/ios-glyphs/30/1-c.png" alt="1-c" className='bg-yellow-600 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 duration-300  translate-y-3.5 transform-gpu'/></li>
+            <li><img width="40" height="40" src="https://img.icons8.com/material/24/2-c.png" alt="2-c"  className='bg-yellow-600 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 duration-300  translate-y-3.5 transform-gpu'/></li>
+            <li><img width="40" height="40" src="https://img.icons8.com/ios-glyphs/30/3.png" alt="3"  className='bg-yellow-600 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 duration-300  translate-y-3.5 transform-gpu'/></li>
+            <li><img width="40" height="40" src="https://img.icons8.com/material/24/4-c.png" alt="4-c"  className='bg-yellow-600 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 duration-300  translate-y-3.5 transform-gpu'/></li>
+            <li><img width="40" height="40" src="https://img.icons8.com/ios-glyphs/30/5.png" alt="5"  className='bg-yellow-600 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 duration-300  translate-y-3.5 transform-gpu'/></li>
+            <li className='mt-1'><img width="32" height="32" src="https://img.icons8.com/windows/32/advance.png" alt="advance " className='  translate-y-3.5 transform-gpu'/></li>
+            
+            </ul>   </Link> 
+
       </div>
 
     </div>

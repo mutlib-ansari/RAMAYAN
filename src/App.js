@@ -317,6 +317,8 @@ import WishlistPage from './componants/pages/Wishlist';
 import Login from './componants/pages/Loginpage';
 import SignIn from './componants/pages/Singinpage';
 import BackToTopButton from './componants/Backtotopbutton';
+import ContactPage from './componants/pages/Contectpage';
+import AboutUsPage from './componants/pages/Aboutuspage';
 
 const AppRoutes = () => {
   const [routeLoading, setRouteLoading] = useState(false);
@@ -334,7 +336,7 @@ const AppRoutes = () => {
     handleStart();
 
     
-    const timer = setTimeout(handleStop, 1000); 
+    const timer = setTimeout(handleStop, 2000); 
 
     // Cleanup the timer on component unmount
     return () => clearTimeout(timer);
@@ -357,6 +359,8 @@ const AppRoutes = () => {
               <BackToTopButton/>
               
              
+              
+             
             </>
           } 
         />
@@ -367,6 +371,8 @@ const AppRoutes = () => {
         <Route path="/BlogPage" element={<BlogPage />} />
         <Route path="/WishlistPage" element={<WishlistPage/>} />
         <Route path="/SignIn" element={<SignIn/>} />
+        <Route path="/ContactPage" element={ <ContactPage/>} />
+        <Route path="/AboutUsPage" element={  <AboutUsPage/>} />
        
         
         
@@ -381,7 +387,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setInitialLoading(false);
-    }, 400);
+    }, 800);
 
     return () => clearTimeout(timer);
   }, []);

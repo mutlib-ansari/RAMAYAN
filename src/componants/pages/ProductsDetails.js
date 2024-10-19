@@ -1012,6 +1012,10 @@
 // }
 
 
+
+
+
+
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Rate, Button, Modal, Input, Tabs } from 'antd'; // Import Tabs component
@@ -1026,12 +1030,38 @@ import '../Herosection/Styles.css';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 
 const { TextArea } = Input;
-const { TabPane } = Tabs; 
+const { TabPane } = Tabs; // Tabs for description and Q&A
 
 const imageMap = {
   'stachu.png': stachuImage,
   'naks1.png': stachuImage2,
   'naks2.png': stachuImage3,
+};
+
+const settings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        infinite: true,
+        dots: true,
+      },
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      },
+    },
+  ],
 };
 
 export default function ProductDetail() {
@@ -1073,7 +1103,7 @@ export default function ProductDetail() {
   };
 
   if (!product) {
-    return <div className="container mx-auto mt-10">Product not found</div>;
+    return <div className="container mx-auto  mt-10">Product not found</div>;
   }
 
   const handleReviewSubmit = () => {
@@ -1092,15 +1122,15 @@ export default function ProductDetail() {
   };
 
   return (
-    <div className="container mx-auto sm:px-4 lg:px-8 py-10 pt-36">
+    <div className="container mx-auto xl:max-w-6xl sm:px-4 lg:px-8  pt-10 mb-16">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="relative flex justify-center items-center">
           <div
             className="absolute left-0 z-10 bg-gray-200 p-2 rounded-full hover:bg-yellow-600 cursor-pointer"
             onClick={handlePrevImage}
-            style={{ left: '5px' }}
+            style={{ left: '4px' }}
           >
-            <LeftOutlined style={{ fontSize: '20px' }} />
+            <LeftOutlined style={{ fontSize: '24px' }} />
           </div>
 
           <img className="w-96 h-96 object-contain" src={productImages[currentImageIndex]} alt={product.name} />
@@ -1108,9 +1138,9 @@ export default function ProductDetail() {
           <div
             className="absolute right-0 z-10 bg-gray-200 p-2 rounded-full hover:bg-yellow-600 cursor-pointer"
             onClick={handleNextImage}
-            style={{ right: '5px' }}
+            style={{ right: '4px' }}
           >
-            <RightOutlined style={{ fontSize: '20px' }} />
+            <RightOutlined style={{ fontSize: '24px' }} />
           </div>
         </div>
 
@@ -1129,13 +1159,13 @@ export default function ProductDetail() {
 
           <p className="mt-4 text-gray-700">{product.description}</p>
 
-          <Link to='/Addtocard'><Button className="custom-button mt-6 py-2 px-4">Add to Cart</Button></Link>
+          <Link to='/Addtocard'><Button className="custom-button mt-6 py-2 px-4  transition ease-out delay-150  hover:scale-110  duration-300">Add to Cart</Button></Link>
         </div>
       </div>
 
-
-
      
+
+      {/* Customer Reviews */}
       <div className="mt-10">
         <div className='flex justify-between text-xl font-bold'>
           <h3 className="text-xl font-bold mb-4">Customer Reviews</h3>
@@ -1160,7 +1190,7 @@ export default function ProductDetail() {
         </div>
       </div>
 
-      
+      {/* Review Modal */}
       <Modal
         title="Leave a Review"
         visible={isModalVisible}
@@ -1184,19 +1214,26 @@ export default function ProductDetail() {
             onChange={(e) => setNewReview({ ...newReview, comment: e.target.value })}
             rows={4}
           />
-          <Button onClick={handleReviewSubmit} className="custom-button py-2 px-4 mt-4">
+          <Button onClick={handleReviewSubmit} className="custom-button py-2 px-4 mt-4  transition ease-out delay-150  hover:scale-110  duration-300">
             Submit Review
           </Button>
         </div>
       </Modal>
 
-      <Tabs defaultActiveKey="1" className="mt-10">
+
+       
+       <Tabs defaultActiveKey="1" className="mt-10">
+        
         <TabPane tab="Description" key="1">
           <h3 className="text-xl font-bold mb-4">Product Description</h3>
           <p>{product.description}</p>
         </TabPane>
+
+        
         <TabPane tab="Q&A" key="2">
           <h3 className="text-xl font-bold mb-4">Questions & Answers</h3>
+
+          
           <div className="space-y-4">
             {qaList.map((qa, index) => (
               <div key={index} className="border p-4 rounded-lg bg-gray-100">
@@ -1205,6 +1242,8 @@ export default function ProductDetail() {
               </div>
             ))}
           </div>
+
+          
           <div className="mt-6">
             <h4 className="font-bold">Ask a question:</h4>
             <TextArea
@@ -1221,16 +1260,41 @@ export default function ProductDetail() {
               rows={2}
               className="mt-2"
             />
-            <Button onClick={handleQuestionSubmit} className="custom-button py-2 px-4 mt-4">
+            <Button onClick={handleQuestionSubmit} className="custom-button py-2 px-4 mt-4  transition ease-out delay-150  hover:scale-110  duration-300">
               Submit Q&A
             </Button>
           </div>
         </TabPane>
       </Tabs>
 
+      
+      <div className="mt-10">
+        <h3 className="text-xl font-bold mb-4">Related Products</h3>
+        <Slider {...settings}>
+          <div>
+            <img src={stachuImage} alt="Related Product 1" className="object-contain h-48 w-full" />
+            <h4 className="text-center mt-2">Related Product 1</h4>
+          </div>
+          <div>
+            <img src={stachuImage} alt="Related Product 2" className="object-contain h-48 w-full" />
+            <h4 className="text-center mt-2">Related Product 2</h4>
+          </div>
+          <div>
+            <img src={stachuImage} alt="Related Product 3" className="object-contain h-48 w-full" />
+            <h4 className="text-center mt-2">Related Product 3</h4>
+          </div>
+          <div>
+            <img src={stachuImage} alt="Related Product 4" className="object-contain h-48 w-full" />
+            <h4 className="text-center mt-2">Related Product 4</h4>
+          </div>
+          <div>
+            <img src={stachuImage} alt="Related Product 5" className="object-contain h-48 w-full" />
+            <h4 className="text-center mt-2">Related Product 5</h4>
+          </div>
+        </Slider>
+      </div>
     </div>
   );
 }
-
 
 

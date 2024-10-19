@@ -148,7 +148,7 @@ import '../Herosection/Styles.css'
 
 export default function Footer() {
     return (
-        <div className="bg-yellow-600 text-white py-6 mt-10">
+        <div className="bg-yellow-600 text-white py-6">
 
             <div className="container mx-auto xl:max-w-6xl  grid grid-cols-1 md:grid-cols-3 gap-8 px-4 md:px-0">
 
